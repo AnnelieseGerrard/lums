@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :courses
   has_many :enrollments
   has_many :courses, through: :enrollments
+  has_many :submissions
+
+  validates :email, presence: true
+  validates :is_creator, presence: true
 end
