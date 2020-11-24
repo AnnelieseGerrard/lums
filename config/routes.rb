@@ -6,10 +6,8 @@ Rails.application.routes.draw do
   resources :courses, only: [:show] do
     resources :lectures, only: [:create, :new]
   end
-  resources :lectures, only: [:show] do
-    resources :exercises, only: [:create]
-  end
-  resources :exercises, only: [:show] do
+  resources :lectures, only: [:show]
+  resources :exercises, only: [] do
     resources :submissions, only: [:create]
   end
 end
