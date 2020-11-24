@@ -6,15 +6,16 @@ class LecturesController < ApplicationController
   # GET courses/:course_id/lectures/new(.:format)
   def new
     @lecture = Lecture.new
+    @course = Course.find(params[:course_id])
   end
 
   # POST courses/:course_id/lectures(.:format)
   def create
     @lecture = Lecture.new(lecture_params)
     @course = Course.find(params[:course_id])
-    @lecture.course_id = @course.id
+    @lecture.course = @course
     if @lecture.save
-      redirect_to course_path, notice: 'Lecture successfully created.'
+      redirect_to course_path(@course), notice: 'Lecture successfully created.'
     else
       render :new
     end
@@ -23,6 +24,6 @@ class LecturesController < ApplicationController
   private
 
   def lecture_params
-    params.require(:lecture).permit(:title, :description, :video, :resources)
+    params.require(:lecture).permit(:title, :description, :video, resources: [])
   end
 end
