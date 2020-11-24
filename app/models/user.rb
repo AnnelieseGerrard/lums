@@ -4,11 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :courses
+  has_many :courses_created, class_name: 'Course'
   has_many :enrollments
-  has_many :courses, through: :enrollments
+  has_many :courses_enrolled, through: :enrollments, source: 'course'
   has_many :submissions
 
   validates :email, presence: true
-  validates :is_creator, presence: true
 end
