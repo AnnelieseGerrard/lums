@@ -27,16 +27,22 @@ jess = User.create(email: "jess@gmail.com", password: "password", firstname: "Je
 puts "Creating 33 other Users"
 33.times do 
   User.create(email: Faker::Internet.unique.email, password: Faker::Internet.password(min_length: 8, max_length: 12), 
-  firstname: Faker::Name.first_name, lastname: Faker::Name.last_name)
+              firstname: Faker::Name.first_name, lastname: Faker::Name.last_name)
 end
 
 # Create Courses
 puts
 puts "##### Creating Courses #####"
+puts "Downloading Course Images from Cloudinary"
+social_media_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1606255217/lums/seed_originals/social_media_marketing_course_image_qkdcha.jpg')
+direct_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1606255629/lums/seed_originals/direct_marketing_course_image_uihgbw.jpg')
+
 puts "Creating Social Media Marketing Course"
-social_media_marketing_course = Course.create(title: "Social Media Superstar: Master Selling in the Digital Age", user: cody)
+social_media_marketing_course = Course.create(title: "Social Media Superstar: Master Selling in the Digital Age", user: cody, 
+                                              image: {io: File.open(social_media_marketing_course_image), filename: "social_media_marketing_course_image.jpeg", content_type: 'image/jpeg' })
 puts "Creating Direct Marketing Course"
-direct_marketing_course = Course.create(title: "Socially Acceptable Harassment: How to Never take No for an Answer", user: cody)
+direct_marketing_course = Course.create(title: "Socially Acceptable Harassment: How to Never take No for an Answer", user: cody,
+                                        image: {io: File.open(direct_marketing_course_image), filename: "direct_marketing_course_image.jpeg", content_type: 'image/jpeg' })
 
 puts
 puts "##### Enrolling Users in Courses #####"
@@ -73,7 +79,7 @@ puts "##### Building Social Media Marketing Course ##### "
 9.times do |i|
   puts "Creating Lecture #{i+1} for the Social Media Marketing Course"
   lecture = Lecture.create(title: "Social Marketing 10#{i+1}", course: social_media_marketing_course, 
-    video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, resources: [])
+                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, resources: [])
     
     puts "Attaching Lecture #{i+1} resources for the Social Media Marketing Course"
     n_resources = (0 .. possible_resources.length).to_a.sample
@@ -95,7 +101,8 @@ puts
 puts "##### Building Direct Marketing Course ##### "
 9.times do |i|
   puts "Creating Lecture #{i+1} for the Direct Marketing Course"
-  lecture = Lecture.create(title: "Direct Marketing 10#{i+1}", course: direct_marketing_course, video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' })
+  lecture = Lecture.create(title: "Direct Marketing 10#{i+1}", course: direct_marketing_course, 
+                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' })
 
   puts "Creating Exercise #{i+1} for the Direct Marketing Course"
   Exercise.create(name: "Exercise 10#{i+1}", rich_description: Faker::Markdown.sandwich(sentences: 6, repeat: 5), lecture: lecture)
