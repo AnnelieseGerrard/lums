@@ -14,3 +14,10 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+Dropzone.options.submissionUpload = {
+  paramName: "file", // The name that will be used to transfer the file
+  maxFilesize: 20, // MB
+  timeout: 180000,
+  acceptedFiles: ".zip"
+};
