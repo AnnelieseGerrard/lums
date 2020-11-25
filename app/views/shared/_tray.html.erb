@@ -1,0 +1,5 @@
+<div class="d-flex flex-column h-100">
+  <% @course.lectures.each do |lecture| %>
+    <%= render 'lecture_card' %>
+  <% end %>
+</div>
