@@ -1,7 +1,13 @@
-<div class="d-flex flex-column h-100 w-25 tray">
-  <% @course.lectures.each do |curriculum_item| %>
-    <div class="lecture-card rounded shadow p-3 m-3">
+<% if @course.user.id == current_user.id %>
+  <div id="lecture-tray-sortable" class="d-flex flex-column h-100 w-25 tray">
+<% else %>
+  <div id="lecture-tray" class="d-flex flex-column h-100 w-25 tray">
+<% end %>
+  <% @course.lectures.order(position: :asc).each do |curriculum_item| %>
+    <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %> 
+    <div class="lecture-card rounded shadow p-3 m-3"> 
       <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
     </div>
+    <% end %>
   <% end %>
 </div>
