@@ -1,0 +1,26 @@
+#hero-video {
+
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  /*top: -72px;*/
+}
+
+#overlay-text {
+  text-align: center;
+  z-index: 1;
+}
+
+#bgvideo {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  object-fit: fill;
+  z-index: -1;
+}
