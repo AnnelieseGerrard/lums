@@ -15,9 +15,16 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+// Controlling parameters for the dropzone upload area
 Dropzone.options.submissionUpload = {
   paramName: "file", // The name that will be used to transfer the file
   maxFilesize: 20, // MB
   timeout: 180000,
   acceptedFiles: ".zip"
 };
+
+// Setting it drag and drop for lecture cards
+import Sortable from "sortablejs";
+
+const tray = document.getElementById("lecture-tray");
+const sortable = Sortable.create(tray);

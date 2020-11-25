@@ -1,4 +1,4 @@
-<div class="d-flex flex-column h-100 w-25 tray">
+<div id="lecture-tray" class="d-flex flex-column h-100 w-25 tray">
   <% @course.lectures.each do |curriculum_item| %>
     <%= link_to course_lecture_path(@course, curriculum_item) do %> 
     <div class="lecture-card rounded shadow p-3 m-3">
