@@ -29,7 +29,7 @@ import Sortable from "sortablejs";
 import Rails from "@rails/ujs";
 window.Rails = Rails;
 
-const tray = document.getElementById("lecture-tray");
+const tray = document.getElementById("lecture-tray-sortable");
 
 Sortable.create(tray, {
   ghostClass: "ghost",
