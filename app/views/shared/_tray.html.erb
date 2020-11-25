@@ -1,5 +1,7 @@
 <div class="d-flex flex-column h-100 w-25 tray">
   <% @course.lectures.each do |lecture| %>
-    <%= render 'shared/lecture_card' %>
+    <div class="lecture-card rounded shadow p-3 m-3">
+      <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= lecture.title %>
+    </div>
   <% end %>
 </div>
