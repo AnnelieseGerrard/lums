@@ -36,6 +36,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
+gem 'dropzonejs-rails'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

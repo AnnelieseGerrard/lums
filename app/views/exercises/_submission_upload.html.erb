@@ -1,3 +1,10 @@
 <div class="submission-upload p-3 d-flex justify-content-center align-items-center">
   <i class="fas fa-file-upload"></i>
 </div>
+<p>
+  This is the most minimal example of Dropzone. The upload in this example
+  doesn't work, because there is no actual server to handle the file upload.
+</p>
+
+<!-- Change /upload-target to your upload address -->
+<form action="<%= exercise_submissions_path(@lecture.exercise) %>" class="dropzone"></form>
