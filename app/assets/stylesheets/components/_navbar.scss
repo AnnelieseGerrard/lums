@@ -1,20 +1,58 @@
+nav {
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+}
+
+.navbar {
+  height: 72px;
+  padding: 8px 0px;
+}
+
+.primary-nav {
+  display: flex;
+  list-style: none;
+}
+
+.secondary-nav {
+  list-style: none;
+}
+
+
+.navbar-brand {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  position: relative;
+  bottom: 8px;
+  img {
+    width: 40px;
+}
+  }
+
+
+
 .navbar-lewagon {
-  justify-content: space-between;
+  position: relative;
+  display: flex;
+  width: 100%;
   background: transparent;
   height: 72px;
+  justify-content: space-between;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
 
 a.dropdown-divider {
   padding-top: 4px;
   padding-left: 24px;
   padding-right: 79px;
   text-decoration: none;
+}
+
+.navigation-group-3 {
+  display: inherit;
+  justify-content: flex-grow;
 }
