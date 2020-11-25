@@ -79,7 +79,8 @@ puts "##### Building Social Media Marketing Course ##### "
 9.times do |i|
   puts "Creating Lecture #{i+1} for the Social Media Marketing Course"
   lecture = Lecture.create(title: "Social Marketing 10#{i+1}", course: social_media_marketing_course, 
-                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, resources: [])
+                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, 
+                           resources: [], position: i+1)
     
     puts "Attaching Lecture #{i+1} resources for the Social Media Marketing Course"
     n_resources = (0 .. possible_resources.length).to_a.sample
@@ -102,7 +103,8 @@ puts "##### Building Direct Marketing Course ##### "
 9.times do |i|
   puts "Creating Lecture #{i+1} for the Direct Marketing Course"
   lecture = Lecture.create(title: "Direct Marketing 10#{i+1}", course: direct_marketing_course, 
-                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' })
+                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' }, 
+                           position: i+1)
 
   puts "Creating Exercise #{i+1} for the Direct Marketing Course"
   Exercise.create(name: "Exercise 10#{i+1}", rich_description: Faker::Markdown.sandwich(sentences: 6, repeat: 5), lecture: lecture)

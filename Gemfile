@@ -37,6 +37,7 @@ gem 'carrierwave'
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
 gem 'dropzonejs-rails'
+gem 'acts_as_list' # used to make the lecture cards sortable
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
