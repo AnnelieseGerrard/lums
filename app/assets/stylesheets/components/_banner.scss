@@ -9,7 +9,7 @@
   position: relative;
   top: -72px;
   height: 100.67vh;
-  width: 100vw;
+  width: 100%;
 
   /* format styling */
   overflow: hidden;
@@ -29,11 +29,5 @@ video {
   position: absolute;
   z-index: -1;
   object-fit: cover;
+  overflow: hidden;
 }
-
-  // #bgvideo {
-  //   height: 100vh;
-  //   width: 100vw;
-  //   position: absolute;
-  //   z-index: -1;
-  // }
