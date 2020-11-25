@@ -1,6 +1,7 @@
 class LecturesController < ApplicationController
   def show
     @course = Course.find(params[:course_id])
+    @lecture = Lecture.find(params[:id])
   end
 
   # GET courses/:course_id/lectures/new(.:format)
