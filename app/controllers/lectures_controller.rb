@@ -22,6 +22,11 @@ class LecturesController < ApplicationController
     end
   end
 
+  def move 
+    @lecture = Lecture.find(params[:id])
+    @lecture.insert_at(params[:position].to_i)
+  end
+
   private
 
   def lecture_params
