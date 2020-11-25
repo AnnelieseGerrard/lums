@@ -65,7 +65,7 @@ puts
 puts "##### Downloading Dummy Files from Cloudinary ##### "
 # Create some lectures for marketing course
 puts "Downloading Video File from Cloudinary"
-video_file = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1606250718/lums/seed_originals/intro_to_marketing_short_dlsl9w.mkv')
+video_file = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1606330186/lums/seed_originals/intro_to_marketing_short_ioorcw.webm')
 puts "Downloading Powerpoint File from Cloudinary"
 ppt_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606246928/lums/seed_originals/Lums_vunfrx.pptx')
 puts "Downloading Word Doc from Cloudinary"
