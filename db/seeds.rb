@@ -65,7 +65,7 @@ puts
 puts "##### Downloading Dummy Files from Cloudinary ##### "
 # Create some lectures for marketing course
 puts "Downloading Video File from Cloudinary"
-video_file = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1606250718/lums/seed_originals/intro_to_marketing_short_dlsl9w.mkv')
+video_file = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1606330186/lums/seed_originals/intro_to_marketing_short_ioorcw.webm')
 puts "Downloading Powerpoint File from Cloudinary"
 ppt_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606246928/lums/seed_originals/Lums_vunfrx.pptx')
 puts "Downloading Word Doc from Cloudinary"
@@ -79,7 +79,8 @@ puts "##### Building Social Media Marketing Course ##### "
 9.times do |i|
   puts "Creating Lecture #{i+1} for the Social Media Marketing Course"
   lecture = Lecture.create(title: "Social Marketing 10#{i+1}", course: social_media_marketing_course, 
-                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, resources: [])
+                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, 
+                           resources: [], position: i+1)
     
     puts "Attaching Lecture #{i+1} resources for the Social Media Marketing Course"
     n_resources = (0 .. possible_resources.length).to_a.sample
@@ -102,7 +103,8 @@ puts "##### Building Direct Marketing Course ##### "
 9.times do |i|
   puts "Creating Lecture #{i+1} for the Direct Marketing Course"
   lecture = Lecture.create(title: "Direct Marketing 10#{i+1}", course: direct_marketing_course, 
-                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' })
+                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' }, 
+                           position: i+1)
 
   puts "Creating Exercise #{i+1} for the Direct Marketing Course"
   Exercise.create(name: "Exercise 10#{i+1}", rich_description: Faker::Markdown.sandwich(sentences: 6, repeat: 5), lecture: lecture)

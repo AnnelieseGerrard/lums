@@ -1,0 +1,6 @@
+<form action="<%= exercise_submissions_path(@lecture.exercise) %>" class="dropzone submission-upload" id="submissionUpload" enctype="multipart/form-data">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <%= hidden_field_tag :course_id, @lecture.course.id %>
+  <%= hidden_field_tag :lecture_id, @lecture.id %>
+</form>
