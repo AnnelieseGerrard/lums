@@ -1,15 +1,15 @@
 <%= simple_form_for [@course, @lecture] do |form| %>
-  <div class="field">
+  <%# <div class="field"> %> 
     <%= form.input :title %>
     <%= form.rich_text_area :description %>
     <%= form.input :video, as: :file %>
+    <%= form.input :resources, as: :file, :input_html => { :multiple => true } %>
 
-
-    <%= form.simple_fields_for :exercise do |exercise|%>
+    <%= form.fields_for :exercise, @exercise do |exercise| %>
       <%= exercise.input :name %>
       <%= exercise.rich_text_area :rich_description %>
-      <%= exercise.input :submissions, as: :radio_buttons, wrapper: :vertical_collection_inline %>
+      <%= exercise.input :is_assessed, as: :radio_buttons, wrapper: :vertical_collection_inline %>
     <% end %>
     <%= form.submit %>
-  </div>
+ <%#  </div> %> 
 <% end %>
