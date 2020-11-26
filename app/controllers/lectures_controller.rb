@@ -1,5 +1,6 @@
 class LecturesController < ApplicationController
   def show
+    @course = Course.find(params[:course_id])
     @lecture = Lecture.find(params[:id])
   end
 
@@ -23,6 +24,11 @@ class LecturesController < ApplicationController
       render :new
     end
 
+  end
+
+  def move 
+    @lecture = Lecture.find(params[:id])
+    @lecture.insert_at(params[:position].to_i)
   end
 
   private

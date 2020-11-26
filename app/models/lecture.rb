@@ -5,6 +5,8 @@ class Lecture < ApplicationRecord
   has_many_attached :resources, dependent: :destroy
   has_rich_text :description
 
+  acts_as_list scope: :course
+
   validates :title, presence: true
   validates :course, presence: true
 end

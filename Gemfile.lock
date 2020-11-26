@@ -56,6 +56,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    acts_as_list (1.0.2)
+      activerecord (>= 4.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.0.2.0)
@@ -101,6 +103,8 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    dropzonejs-rails (0.8.5)
+      rails (> 3.1)
     erubi (1.10.0)
     execjs (2.7.0)
     faker (2.14.0)
@@ -269,6 +273,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
   autoprefixer-rails
   bootsnap (>= 1.4.2)
   byebug
@@ -277,6 +282,7 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
+  dropzonejs-rails
   faker
   font-awesome-sass
   jbuilder (~> 2.7)

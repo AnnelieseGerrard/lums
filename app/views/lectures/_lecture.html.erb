@@ -1,0 +1,40 @@
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Lectures</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Exercises</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="lecture-show-content-tab">
+      <div>
+        <section>
+          <strong><%= @lecture.title %></strong>
+        </section>
+        <%= @lecture.description %>
+        <%= cl_video_tag("https://res.cloudinary.com/dsogzo1mn/video/upload/c_pad,du_10,h_360,q_70,w_480/v1/lums/zq9cumlvrmxc0ie47eq80fzzvecm.mkv",
+          :loop => true, :controls => true,
+          :transformation => [
+          :height=>400, :width=>520, :crop=>"pad",
+          :quality=>70, :duration=>"10"],
+          :fallback_content => "Your browser does not support HTML5 video tags." )
+        %>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="lecture-show-content-tab">
+      <div>
+        <section>
+          <strong><%= @lecture.exercise.name %></strong>
+        </section>
+        <%= @lecture.exercise.rich_description %>
+      </div>
+    </div>
+  </div>
+</div>
+
