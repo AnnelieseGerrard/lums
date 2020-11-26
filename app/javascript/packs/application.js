@@ -28,9 +28,8 @@ import { initLectureSorting } from '../components/tray';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initLectureSorting();
-  initDropzone();
   navChange();
+  initLectureSorting();
 });
 
 Dropzone.options.submissionUpload = {
