@@ -18,12 +18,13 @@
         <%= cl_video_tag(@lecture.video.key,
           :loop => true, :controls => true,
           :transformation => [
-          :height=>400, :width=>520, :crop=>"pad",
+          :height=>500, :width=>800, :crop=>"pad",
           :quality=>70, :duration=>"10"],
           :fallback_content => "Your browser does not support HTML5 video tags." )
         %>
       </div>
     </div>
+    <h2 class="submissions-title">Submissions</h2>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <div class="lecture-show-content-tab">
@@ -33,6 +34,7 @@
         </section>
         <%= @lecture.exercise.rich_description %>
       </div>
+      <%= render 'exercises/submission_upload' %>
     </div>
   </div>
 </div>
