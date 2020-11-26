@@ -7,6 +7,7 @@ class LecturesController < ApplicationController
   # GET courses/:course_id/lectures/new(.:format)
   def new
     @lecture = Lecture.new
+    @exercise = Exercise.new
     @course = Course.find(params[:course_id])
   end
 
@@ -16,14 +17,15 @@ class LecturesController < ApplicationController
     @course = Course.find(params[:course_id])
     @lecture.course = @course
     @lecture.description = params[:lecture][:description].gsub(/<[^>]+>/, "")
-    @lecture.exercise = Exercise.new(name: params[:lecture][:exercise][:name], rich_description: params[:lecture][:exercise][:rich_description].gsub(/<[^>]+>/, ""))
-    @lecture.exercise.save
+    @lecture.exercise = Exercise.new(name: params[:lecture][:exercise][:name], 
+                                     rich_description: params[:lecture][:exercise][:rich_description].gsub(/<[^>]+>/, ""),
+                                     is_assessed: params[:lecture][:exercise][:is_assessed]
+                                     )
     if @lecture.save
       redirect_to course_path(@course), notice: 'Lecture successfully created.'
     else
       render :new
     end
-
   end
 
   def move 
@@ -34,6 +36,6 @@ class LecturesController < ApplicationController
   private
 
   def lecture_params
-    params.require(:lecture).permit(:title, :description, :exercise, :video, resources: [])
+    params.require(:lecture).permit(:title, :description, :video, resources: [])
   end
 end
