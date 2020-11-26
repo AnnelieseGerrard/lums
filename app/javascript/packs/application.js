@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
 import "bootstrap"
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -16,10 +17,11 @@ import "bootstrap"
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+require("trix")
+require("@rails/actiontext")
 
 // Internal imports:
 import { navChange } from '../components/navbar';
-
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {

@@ -4,5 +4,4 @@ class Exercise < ApplicationRecord
 
   validates :name, presence: true
   validates :rich_description, presence: true
-  validates :lecture, presence: true
 end

@@ -3,6 +3,7 @@ class Lecture < ApplicationRecord
   has_one :exercise, dependent: :destroy
   has_one_attached :video, dependent: :destroy
   has_many_attached :resources, dependent: :destroy
+  has_rich_text :description
 
   acts_as_list scope: :course
 

@@ -7,6 +7,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "actiontext";
+@import "trix/dist/trix";
 
 // Your CSS partials
 @import "components/index";
@@ -15,5 +17,5 @@
 @import "components/lecture_card";
 @import "components/add_lecture_button";
 @import "pages/index";
-
 @import "courses/index";
+
