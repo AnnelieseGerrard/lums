@@ -22,44 +22,20 @@ require("@rails/actiontext")
 
 // Internal imports:
 import { navChange } from '../components/navbar';
+import { initLectureSorting } from '../components/tray';
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initLectureSorting();
+  initDropzone();
   navChange();
 });
 
-// Controlling parameters for the dropzone upload area
 Dropzone.options.submissionUpload = {
   paramName: "file", // The name that will be used to transfer the file
   maxFilesize: 20, // MB
   timeout: 180000,
   acceptedFiles: ".zip"
 };
-
-// Setting it drag and drop for lecture cards
-import Sortable from "sortablejs";
-import Rails from "@rails/ujs";
-window.Rails = Rails;
-
-const tray = document.getElementById("lecture-tray-sortable");
-
-Sortable.create(tray, {
-  ghostClass: "ghost",
-  animation: 150,
-  onEnd: (event) => {
-    console.log(event);
-    const item = event.item;
-    let data = new FormData();
-
-    data.append("position", event.newIndex + 1);
-    let url = `${event.item.href}/move`;
-    console.log(url);
-    Rails.ajax({
-      url: url,
-      type: "PATCH",
-      data: data
-    });
-  }
-});
