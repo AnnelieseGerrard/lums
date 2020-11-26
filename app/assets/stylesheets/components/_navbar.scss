@@ -1,6 +1,7 @@
 nav {
   /* positioning */
   position: absolute;
+  background-color: blue;
 
   /* font style for nav */
   font-family: adelle-sans, sans-serif;
@@ -11,7 +12,7 @@ nav {
 
 .navbar {
   /* dimensions */
-  height: 72px;
+  height: 48px;
 
   /* box properties */
   padding: 8px 0px;
@@ -47,13 +48,15 @@ nav {
   }
 
   a:hover{
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid #fff;
   }
 
 
 }
 
 .secondary-nav {
+  position: relative;
+  bottom: 4px;
   list-style: none;
   padding-right: 8px;
 
@@ -63,7 +66,7 @@ nav {
   }
 
   a:hover{
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid #fff;
   }
 }
 
@@ -72,12 +75,16 @@ nav {
   padding-top: 0px;
   padding-bottom: 0px;
   position: relative;
-  bottom: 8px;
+  bottom: 12px;
   padding-left: 8px;
   img {
     width: 40px;
 }
   }
+
+.nav-item dropdown {
+  padding-bottom: 4px;
+}
 
 a.dropdown-divider {
   padding-top: 4px;
