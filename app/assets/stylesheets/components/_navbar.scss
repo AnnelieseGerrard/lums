@@ -12,21 +12,26 @@ nav {
 .navbar {
   /* dimensions */
   height: 48px;
+  width: auto;
 
   /* box properties */
   padding: 8px 0px;
 
   display: flex;
+  justify-content: flex-start;
 }
 
 /* the navbar has been structured into three parts: primary, secondary and brand */
 
 .primary-nav {
   /* dimensions */
-  width: 500px;
 
   /* child content positioning */
   display: flex;
+  box-sizing: border-box;
+  // justify-content: flex-start;
+
+  padding: 0px;
 
   /* child content style */
   list-style: none;
@@ -37,16 +42,18 @@ nav {
   }
 
   a:hover{
-    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    margin-right: -1px;
   }
 
 }
 
 .secondary-nav {
-  position: relative;
-  bottom: 4px;
   list-style: none;
+  margin-left: auto;
   padding-right: 8px;
+  box-sizing: border-box;
+
 
   a {
     border-left: .0625rem solid rgba(228,231,233, 0.3);
@@ -54,7 +61,8 @@ nav {
   }
 
   a:hover{
-    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+
   }
 }
 
@@ -63,7 +71,7 @@ nav {
   padding-top: 0px;
   padding-bottom: 0px;
   position: relative;
-  bottom: 12px;
+  bottom: 8px;
   padding-left: 8px;
   img {
     width: 40px;
@@ -71,12 +79,16 @@ nav {
   }
 
 .nav-item dropdown {
-  padding-bottom: 4px;
 }
 
 a.dropdown-divider {
-  padding-top: 4px;
-  padding-left: 24px;
-  padding-right: 79px;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+  padding: 4px 24px;
+  padding-right: 49.5%;
   text-decoration: none;
 }
