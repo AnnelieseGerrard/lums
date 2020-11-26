@@ -1,12 +1,94 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+nav {
+  /* positioning */
+  position: absolute;
+  background-color: blue;
+
+  /* font style for nav */
+  font-family: adelle-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar {
+  /* dimensions */
+  height: 48px;
+
+  /* box properties */
+  padding: 8px 0px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+/* the navbar has been structured into three parts: primary, secondary and brand */
+
+.primary-nav {
+
+  /* positioning */
+  position: relative;
+  right: 400px;
+
+
+
+  /* dimensions */
+  width: 500px;
+
+  /* box properties */
+  padding: 0px;
+  padding-left: 8px;
+
+  /* child content positioning */
+  display: flex;
+  justify-content: start;
+
+  /* child content style */
+  list-style: none;
+
+  a {
+    border-right: .0625rem solid rgba(228,231,233, 0.3);
+    color: rgb(212,212,250);
+  }
+
+  a:hover{
+    border-bottom: 2px solid #fff;
+  }
+
+
+}
+
+.secondary-nav {
+  position: relative;
+  bottom: 4px;
+  list-style: none;
+  padding-right: 8px;
+
+  a {
+    border-left: .0625rem solid rgba(228,231,233, 0.3);
+    color: rgb(212,212,250);
+  }
+
+  a:hover{
+    border-bottom: 2px solid #fff;
+  }
+}
+
+
+.navbar-brand {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  position: relative;
+  bottom: 12px;
+  padding-left: 8px;
+  img {
+    width: 40px;
+}
+  }
+
+.nav-item dropdown {
+  padding-bottom: 4px;
+}
+
+a.dropdown-divider {
+  padding-top: 4px;
+  padding-left: 24px;
+  padding-right: 79px;
+  text-decoration: none;
 }

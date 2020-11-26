@@ -16,6 +16,18 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+
+// Internal imports:
+import { navChange } from '../components/navbar';
+
+
+//turbolinks import
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
+  // initSelect2();
+  navChange();
+});
+
 // Controlling parameters for the dropzone upload area
 Dropzone.options.submissionUpload = {
   paramName: "file", // The name that will be used to transfer the file
@@ -38,7 +50,7 @@ Sortable.create(tray, {
     console.log(event);
     const item = event.item;
     let data = new FormData();
-    
+
     data.append("position", event.newIndex + 1);
     let url = `${event.item.href}/move`;
     console.log(url);
