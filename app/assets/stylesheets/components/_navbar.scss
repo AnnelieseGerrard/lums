@@ -28,6 +28,7 @@ nav {
 
   /* child content positioning */
   display: flex;
+  box-sizing: border-box;
   // justify-content: flex-start;
 
   padding: 0px;
@@ -41,7 +42,7 @@ nav {
   }
 
   a:hover{
-    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
   }
 
 }
@@ -50,6 +51,7 @@ nav {
   list-style: none;
   margin-left: auto;
   padding-right: 8px;
+  box-sizing: border-box;
 
 
   a {
@@ -58,7 +60,8 @@ nav {
   }
 
   a:hover{
-    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+
   }
 }
 
@@ -78,8 +81,13 @@ nav {
 }
 
 a.dropdown-divider {
-  padding-top: 4px;
-  padding-left: 24px;
-  padding-right: 79px;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+  padding: 4px 24px;
+  padding-right: 49.5%;
   text-decoration: none;
 }
