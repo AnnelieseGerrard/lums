@@ -17,18 +17,18 @@ class LecturesController < ApplicationController
     @course = Course.find(params[:course_id])
     @lecture.course = @course
     @lecture.description = params[:lecture][:description].gsub(/<[^>]+>/, "")
-    @lecture.exercise = Exercise.new(name: params[:lecture][:exercise][:name], 
+    @lecture.exercise = Exercise.new(name: params[:lecture][:exercise][:name],
                                      rich_description: params[:lecture][:exercise][:rich_description].gsub(/<[^>]+>/, ""),
                                      is_assessed: params[:lecture][:exercise][:is_assessed]
                                      )
     if @lecture.save
-      redirect_to course_path(@course), notice: 'Lecture successfully created.'
+      redirect_to course_lecture_path(@course, @lecture), notice: 'Lecture successfully created.'
     else
       render :new
     end
   end
 
-  def move 
+  def move
     @lecture = Lecture.find(params[:id])
     @lecture.insert_at(params[:position].to_i)
   end
