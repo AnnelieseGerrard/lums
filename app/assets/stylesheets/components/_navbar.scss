@@ -12,21 +12,25 @@ nav {
 .navbar {
   /* dimensions */
   height: 48px;
+  width: auto;
 
   /* box properties */
   padding: 8px 0px;
 
   display: flex;
+  justify-content: flex-start;
 }
 
 /* the navbar has been structured into three parts: primary, secondary and brand */
 
 .primary-nav {
   /* dimensions */
-  width: 500px;
 
   /* child content positioning */
   display: flex;
+  // justify-content: flex-start;
+
+  padding: 0px;
 
   /* child content style */
   list-style: none;
@@ -43,10 +47,9 @@ nav {
 }
 
 .secondary-nav {
-  position: relative;
-  bottom: 4px;
   list-style: none;
-  padding-right: 8px;
+  margin-left: auto;
+
 
   a {
     border-left: .0625rem solid rgba(228,231,233, 0.3);
