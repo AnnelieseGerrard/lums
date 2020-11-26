@@ -3,6 +3,7 @@
     <%= form.input :title %>
     <%= form.rich_text_area :description %>
     <%= form.input :video, as: :file %>
+    <%= form.input :resources, as: :file, :input_html => { :multiple => true } %>
 
     <%= form.fields_for :exercise, @exercise do |exercise| %>
       <%= exercise.input :name %>
