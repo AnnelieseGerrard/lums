@@ -7,7 +7,6 @@ nav {
   font-family: adelle-sans, sans-serif;
   font-weight: 400;
   font-style: normal;
-
 }
 
 .navbar {
@@ -16,28 +15,18 @@ nav {
 
   /* box properties */
   padding: 8px 0px;
+
+  display: flex;
 }
 
 /* the navbar has been structured into three parts: primary, secondary and brand */
 
 .primary-nav {
-
-  /* positioning */
-  position: relative;
-  right: 400px;
-
-
-
   /* dimensions */
   width: 500px;
 
-  /* box properties */
-  padding: 0px;
-  padding-left: 8px;
-
   /* child content positioning */
   display: flex;
-  justify-content: start;
 
   /* child content style */
   list-style: none;
@@ -50,7 +39,6 @@ nav {
   a:hover{
     border-bottom: 2px solid #fff;
   }
-
 
 }
 
