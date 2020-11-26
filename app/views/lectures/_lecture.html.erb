@@ -1,5 +1,4 @@
 
-
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Lectures</a>
@@ -16,7 +15,7 @@
           <strong><%= @lecture.title %></strong>
         </section>
         <%= @lecture.description %>
-        <%= cl_video_tag("https://res.cloudinary.com/dsogzo1mn/video/upload/c_pad,du_10,h_360,q_70,w_480/v1/lums/zq9cumlvrmxc0ie47eq80fzzvecm.mkv",
+        <%= cl_video_tag(@lecture.video.key,
           :loop => true, :controls => true,
           :transformation => [
           :height=>400, :width=>520, :crop=>"pad",
