@@ -3,6 +3,8 @@ const navChange = () => {
     const elements = document.getElementsByTagName("nav");
     const elements_array = Array.from(elements);
     elements_array.forEach(element => element.style.backgroundColor = "transparent");
+    elements_array.forEach(element => element.style.boxShadow = "none");
+
   };
 };
 
