@@ -1,6 +1,5 @@
-// ——————————————————————————————————————————————————
-// TextScramble
-// ——————————————————————————————————————————————————
+
+// TextScramble - change the chars to alter scramble content.
 
 class TextScramble {
   constructor(el) {
@@ -56,9 +55,9 @@ class TextScramble {
   }
 }
 
-// ——————————————————————————————————————————————————
-// Example
-// ——————————————————————————————————————————————————
+
+// Change the phrases array to change resolved content
+// Change the second setTimeout variable for animation length
 
 const phrases = [
   'FIND',
