@@ -67,15 +67,14 @@ const phrases = [
   'LUMS'
 ]
 
-const el = document.querySelector('#overlay-text')
-const fx = new TextScramble(el)
+if (el) {
+  let counter = 0
+  const next = () => {
+    fx.setText(phrases[counter]).then(() => {
+      setTimeout(next, 1500)
+    })
+    counter = (counter + 1) % phrases.length
+  }
 
-let counter = 0
-const next = () => {
-  fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 1500)
-  })
-  counter = (counter + 1) % phrases.length
-}
-
-next()
+  next()
+};
