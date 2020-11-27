@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="lecture-show-content-tab">
+    <div class="lecture-show-content-tab text-center">
       <div>
         <section>
           <h2><%= @lecture.exercise.name %></h2>
@@ -50,7 +50,7 @@
         <%= @lecture.exercise.rich_description %>
       </div>
       <% if !current_user.is_creator && @lecture.exercise.is_assessed %>
-        <%= render 'exercises/submission_upload' %>
+          <%= render 'exercises/submission_upload' %>
       <% end %>
     </div>
   </div>
