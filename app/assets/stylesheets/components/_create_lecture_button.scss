@@ -1,0 +1,13 @@
+.create-lecture-button {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #183FCC;
+  border-color: #F9F8F9;
+  transition: background 0.3s ease;
+
+  &:hover {
+  background: black;
+  color: white;
+  }
+}
