@@ -87,9 +87,9 @@ puts "##### Building Social Media Marketing Course ##### "
     lecture_resources = possible_resources.sample(n_resources)
     lecture_resources.each do |resource|
       if resource.object_id == ppt_file.object_id
-        lecture.resources.attach(io: File.open(ppt_file), filename: "lecture_slides.pptx")
+        lecture.resources.attach(io: File.open(ppt_file), filename: "lecture_slides.pptx", content_type: ppt_file.content_type)
       else
-        lecture.resources.attach(io: File.open(word_file), filename: "further_reading.docx")
+        lecture.resources.attach(io: File.open(word_file), filename: "further_reading.docx", content_type: word_file.content_type)
       end
     end
     
