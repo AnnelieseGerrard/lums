@@ -34,17 +34,9 @@
         </section>
         <%= @lecture.exercise.rich_description %>
       </div>
-      <% if @lecture.exercise.is_assessed == true %>
-      <%= render 'exercises/submission_upload' %>
+      <% if !current_user.is_creator && @lecture.exercise.is_assessed %>
+        <%= render 'exercises/submission_upload' %>
       <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
