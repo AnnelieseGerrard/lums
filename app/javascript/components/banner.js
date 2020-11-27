@@ -1,5 +1,6 @@
-
-// TextScramble - change the chars to alter scramble content.
+// ——————————————————————————————————————————————————
+// TextScramble
+// ——————————————————————————————————————————————————
 
 class TextScramble {
   constructor(el) {
@@ -55,9 +56,9 @@ class TextScramble {
   }
 }
 
-
-// Change the phrases array to change resolved content
-// Change the second setTimeout variable for animation length
+// ——————————————————————————————————————————————————
+// Example
+// ——————————————————————————————————————————————————
 
 const phrases = [
   'FIND',
@@ -65,6 +66,9 @@ const phrases = [
   'IN THE NOISE',
   'LUMS'
 ]
+
+const el = document.querySelector('#overlay-text')
+const fx = new TextScramble(el)
 
 if (el) {
   let counter = 0
