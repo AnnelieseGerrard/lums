@@ -1,7 +1,7 @@
 <% if @course.user.id == current_user.id %>
-  <div id="lecture-tray-sortable" class="d-flex flex-column h-100 w-25 tray">
+  <div id="lecture-tray-sortable" class="d-flex flex-column w-25 tray">
 <% else %>
-  <div id="lecture-tray" class="d-flex flex-column h-100 w-25 tray">
+  <div id="lecture-tray" class="d-flex flex-column w-25 tray">
 <% end %>
     <% @course.lectures.order(position: :asc).each do |curriculum_item| %>
       <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %> 
