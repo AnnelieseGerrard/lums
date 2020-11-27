@@ -5,4 +5,22 @@ const navChange = () => {
     elements_array.forEach(element => element.style.backgroundColor = "transparent");
   };
 };
-export { navChange };
+
+
+const checkScroll = () => {
+  if ( (window.location.pathname === "/") || (window.location.pathname === "/#") ) {
+    const myNav = document.getElementsByTagName("nav");
+    const myNav_array = Array.from(myNav);
+    window.onscroll = function () {
+      "use strict";
+      if (document.body.scrollTop >= 1 || document.documentElement.scrollTop >= 200) {
+          myNav_array[0].classList.add("nav-scrolled");
+      }
+      else {
+        myNav_array[0].classList.remove("nav-scrolled");
+      }
+    };
+  };
+};
+
+export { navChange, checkScroll };
