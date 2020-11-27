@@ -21,20 +21,18 @@ require("trix")
 require("@rails/actiontext")
 
 // Internal imports:
+import { checkScroll } from '../components/navbar';
 import { navChange } from '../components/navbar';
 import { initLectureSorting } from '../components/tray';
+import {TextScramble} from '../components/banner'
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  checkScroll();
   navChange();
   initLectureSorting();
+  TextScramble();
 });
 
-Dropzone.options.submissionUpload = {
-  paramName: "file", // The name that will be used to transfer the file
-  maxFilesize: 20, // MB
-  timeout: 180000,
-  acceptedFiles: ".zip"
-};

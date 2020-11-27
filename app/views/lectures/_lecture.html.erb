@@ -45,13 +45,13 @@
     <div class="lecture-show-content-tab">
       <div>
         <section>
-          <strong><%= @lecture.exercise.name %></strong>
+          <h2><%= @lecture.exercise.name %></h2>
         </section>
         <%= @lecture.exercise.rich_description %>
       </div>
-      <h2 class="submissions-title">Submissions</h2>
-      <%= render 'exercises/submission_upload' %>
+      <% if !current_user.is_creator && @lecture.exercise.is_assessed %>
+        <%= render 'exercises/submission_upload' %>
+      <% end %>
     </div>
   </div>
 </div>
-

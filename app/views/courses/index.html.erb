@@ -1,8 +1,16 @@
 <div class="cards">
   <% @courses.each do |course| %>
+  <%= link_to course_lecture_path(course.id, course.lectures.first.id), class:"course-card" do %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path course.image.key %>');">
-    <h3 class="course-title"><%= link_to course.title, course_lecture_path(course.id, course.lectures.first.id) %></h3>
-    <p id="enrollments-count"># of Students: <%= course.enrollments.count %><p>
+<div>
+</div>
+      <div>
+        <h3 class="course-title text-center"><%= course.title %></h3>
+      </div>
+  <div>
+    <p><i class="fas fa-user-friends"> <%= course.enrollments.count %></i></p>
+  </div>
     </div>
+    <% end %>
   <% end %>
 </div>
