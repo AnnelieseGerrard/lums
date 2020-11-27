@@ -12,7 +12,7 @@
     <div class="lecture-show-content-tab">
       <div>
         <section>
-          <strong><%= @lecture.title %></strong>
+          <h2><%= @lecture.title %></h2>
         </section>
         <%= @lecture.description %>
         <%= cl_video_tag(@lecture.video.key,
@@ -30,12 +30,21 @@
     <div class="lecture-show-content-tab">
       <div>
         <section>
-          <strong><%= @lecture.exercise.name %></strong>
+          <h2><%= @lecture.exercise.name %></h2>
         </section>
         <%= @lecture.exercise.rich_description %>
       </div>
+      <% if @lecture.exercise.is_assessed == true %>
       <%= render 'exercises/submission_upload' %>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
 
