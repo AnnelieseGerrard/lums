@@ -32,7 +32,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   checkScroll();
   navChange();
-  TextScramble();
   initLectureSorting();
+  TextScramble();
 });
 
