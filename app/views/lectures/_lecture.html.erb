@@ -49,8 +49,14 @@
         </section>
         <%= @lecture.exercise.rich_description %>
       </div>
-      <% if !current_user.is_creator && @lecture.exercise.is_assessed %>
-          <%= render 'exercises/submission_upload' %>
+      <% if current_user.is_creator %> 
+        <% if @lecture.exercise.is_assessed %> 
+          <p class="accepts-submissions-message"><strong>This exercise accepts submissions</strong></p>
+        <% else %>
+          <p class="doesnt-accept-submissions-message"><strong>This exercise does not accept submissions</strong></p>
+        <% end %>
+      <% elsif @lecture.exercise.is_assessed %>
+        <%= render 'exercises/submission_upload' %>
       <% end %>
     </div>
   </div>
