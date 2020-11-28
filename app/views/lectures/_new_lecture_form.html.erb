@@ -1,15 +1,18 @@
 <%= simple_form_for [@course, @lecture] do |form| %>
-  <%# <div class="field"> %>
-    <%= form.input :title %>
-    <%= form.rich_text_area :description %>
-    <%= form.input :video, as: :file, input_html: {accept: "video/*"} %>
-    <%= form.input :resources, as: :file, :input_html => { :multiple => true } %>
+    <h2> Lecture Information </h2>
+    <%= form.input :title, label: "New Lecture Title" %>
+    <p>Lecture Description: </p>
+    <%= form.rich_text_area :description, label: "Lecture Description" %>
+    <%= form.input :video, as: :file, input_html: {accept: "video/*"}, label: "Lecture Video"%>
+    <%= form.input :resources, as: :file, :input_html => { :multiple => true }, label: "Lecture Resources" %>
 
+    <h2> Exercise Information </h2>
     <%= form.fields_for :exercise, @exercise do |exercise| %>
-      <%= exercise.input :name %>
-      <%= exercise.rich_text_area :rich_description %>
-      <%= exercise.input :is_assessed, as: :radio_buttons, wrapper: :vertical_collection_inline %>
+      <%= exercise.input :name, label: "Exercise Name: " %>
+      <p> Exercise Description: </p>
+      <%= exercise.rich_text_area :rich_description, label: "Exercise Description" %>
+      <%= exercise.input :is_assessed, as: :radio_buttons, wrapper: :vertical_collection_inline,
+           label: "Can Students Submit Work for this Exercise?" %>
     <% end %>
-    <%= form.submit %>
- <%#  </div> %>
+    <%= form.submit class: "btn btn-primary" %>
 <% end %>
