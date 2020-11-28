@@ -9,22 +9,37 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <div class="lecture-show-content-tab">
-      <div>
+    <div class="lecture-show-content-tab d-flex flex-column">
+        <header>
+          <h1 class="text-center"><%= @lecture.title %></h1>
+          <hr>
+        </header>
         <section>
-          <strong><%= @lecture.title %></strong>
+          <%= @lecture.description %>
+          <%= cl_video_tag(@lecture.video.key,
+            :controls => true,
+            :transformation => [
+            :height=>500, :width=>800, :crop=>"pad",
+            :quality=>70, :duration=>"10"],
+            :fallback_content => "Your browser does not support HTML5 video tags." )
+          %>
         </section>
-        <%= @lecture.description %>
-        <%= cl_video_tag(@lecture.video.key,
-          :loop => true, :controls => true,
-          :transformation => [
-          :height=>500, :width=>800, :crop=>"pad",
-          :quality=>70, :duration=>"10"],
-          :fallback_content => "Your browser does not support HTML5 video tags." )
-        %>
-      </div>
+        <section class="w-75 mt-5">
+          <h2>Resources</h2>
+          <hr>
+          <% if @lecture.resources.count == 0 %>
+            <p>There are no resources for this lecture.</p>
+          <% else %>
+            <ul>
+              <% @lecture.resources.each do |resource| %>
+                <li>
+                  <%= link_to resource.filename, rails_blob_path(resource, disposition: "attachment") %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </section>
     </div>
-    <h2 class="submissions-title">Submissions</h2>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <div class="lecture-show-content-tab">
@@ -34,6 +49,7 @@
         </section>
         <%= @lecture.exercise.rich_description %>
       </div>
+      <h2 class="submissions-title">Submissions</h2>
       <%= render 'exercises/submission_upload' %>
     </div>
   </div>
