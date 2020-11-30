@@ -9,7 +9,8 @@
     margin-right: 4px;
   }
 
-  .fa-trash {
-    margin-left: auto;
+  a:nth-child(2) {
+    display: inline-block;
+    margin-left: auto !important;
   }
 }
