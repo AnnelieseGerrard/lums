@@ -4,25 +4,23 @@
   <div id="lecture-tray" class="d-flex flex-column w-25 tray">
 <% end %>
     <% @course.lectures.order(position: :asc).each do |curriculum_item| %>
-      <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %>
         <% if @lecture.id == curriculum_item.id %>
-          <div class="lecture-card rounded active shadow p-3 m-3">
+          <div class="lecture-card rounded active shadow p-3 m-3" data-id="<%= curriculum_item.id %>" >
         <% else %>
-          <div class="lecture-card rounded shadow p-3 m-3">
+          <div class="lecture-card rounded shadow p-3 m-3" data-id="<%= curriculum_item.id %>" >
         <% end %>
-        <% if current_user.is_creator %>
-          <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
-          <%= link_to edit_course_lecture_path(@course, curriculum_item), class: "icon" do  %> 
-            <i class="fas fa-pen"></i>
+          <% if current_user.is_creator %>
+            <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
+            <%= link_to edit_course_lecture_path(@course, curriculum_item), class: "icon" do  %> 
+              <i class="fas fa-pen"></i>
+            <% end %>
+            <%= link_to course_lecture_path(@course, curriculum_item), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do  %> 
+              <i class="fas fa-trash"></i>
+            <% end %>
+          <% else %>
+            <%= curriculum_item.title %>
           <% end %>
-          <%= link_to course_lecture_path(@course, curriculum_item), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do  %> 
-            <i class="fas fa-trash"></i>
-          <% end %>
-        <% else %>
-          <%= curriculum_item.title %>
-        <% end %>
-      </div>
-      <% end %>
+          </div>
     <% end %>
     <% if current_user.is_creator %>
       <div class="add-lecture-container p-3">

@@ -30,9 +30,11 @@ const initLectureSorting = () => {
       console.log(event);
       let data = new FormData();
 
-      data.append("position", event.newIndex + 1);
-      let url = `${event.item.href}/move`;
+      let url = `${event.item.dataset.id}/move`;
       console.log(url);
+      data.append("position", event.oldIndex);
+      console.log(`old index ${event.oldIndex + 1}`);
+      console.log(`new index ${event.newIndex + 1}`);
       Rails.ajax({
         url: url,
         type: "PATCH",
