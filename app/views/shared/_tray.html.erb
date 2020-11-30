@@ -13,7 +13,7 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
       </div>
     <% end %>
-    <% @course.lectures.order(position: :asc).each do |curriculum_item| %> <!-- For each lecture -->
+    <% @lectures.order(position: :asc).each do |curriculum_item| %> <!-- For each lecture -->
         <% if @lecture.id == curriculum_item.id %> <!-- If curriculum_item is selected -->
           <div class="lecture-card rounded active shadow p-3 m-3" data-id="<%= curriculum_item.id %>" >
         <% else %>
