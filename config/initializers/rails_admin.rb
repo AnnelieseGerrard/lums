@@ -47,6 +47,6 @@ RailsAdmin.config do |config|
     # history_show
   end
   config.main_app_name = ["Lums", "BackOffice"]
-  config.included_models = [ "User" ]
+  config.included_models = ["User", "Course" ]
 end
 
