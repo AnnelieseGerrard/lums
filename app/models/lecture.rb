@@ -10,4 +10,7 @@ class Lecture < ApplicationRecord
   validates :title, presence: true
   validates :course, presence: true
   validates :video, presence: true
+
+  include PgSearch::Model
+  multisearchable against: [:title, :description]
 end

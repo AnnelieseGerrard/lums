@@ -3,14 +3,24 @@
 <% else %>
   <div id="lecture-tray" class="d-flex flex-column w-25 tray">
 <% end %>
-    <% @course.lectures.order(position: :asc).each do |curriculum_item| %>
-      <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %> 
-      <div class="lecture-card rounded shadow p-3 m-3"> 
+    <%= form_tag course_lecture_path(@course, @lecture), method: :get do %>
+      <div class="d-flex pt-3 px-3 pb-4">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <% @lectures.sort_by {|l| l.position}.each do |curriculum_item| %>
+      <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %>
+      <div class="lecture-card rounded shadow p-3 m-3">
         <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
       </div>
       <% end %>
     <% end %>
-    <% if current_user.is_creator %>
+    <% if current_user.is_creator? %>
       <div class="add-lecture-container p-3">
         <%= link_to  new_course_lecture_path(@course), class: "add-lecture-button" do %>
           <i class="fas fa-plus"></i>

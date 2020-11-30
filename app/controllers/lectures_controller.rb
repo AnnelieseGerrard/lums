@@ -1,7 +1,20 @@
 class LecturesController < ApplicationController
+
   def show
     @course = Course.find(params[:course_id])
     @lecture = Lecture.find(params[:id])
+    if params[:query].present?
+      @results = PgSearch.multisearch(params[:query])
+      @lectures = @results.map do |result|
+        if result.searchable.is_a?(Exercise)
+          result.searchable.lecture
+        else
+          result.searchable
+        end
+      end
+    else
+      @lectures = Lecture.all
+    end
   end
 
   # GET courses/:course_id/lectures/new(.:format)
