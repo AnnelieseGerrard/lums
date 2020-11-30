@@ -13,14 +13,6 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
-    <script>
-      Dropzone.options.submissionUpload = {
-      paramName: "file", // The name that will be used to transfer the file
-      maxFilesize: 20, // MB
-      timeout: 180000,
-      acceptedFiles: ".zip"
-      };
-    </script>
   </head>
 
   <body>

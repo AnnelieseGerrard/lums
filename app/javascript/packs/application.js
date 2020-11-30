@@ -28,15 +28,15 @@ import { initLectureSorting } from '../components/tray';
 // import { trayItemChange } from '../components/tray';
 import { TextScramble } from '../components/banner';
 import { descriptionTrigger } from '../components/home';
+import { initializeDropzone } from "../components/dropzone";
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
   checkScroll();
   smoothScroll();
   navChange();
   // trayItemChange();
+  initializeDropzone();
   descriptionTrigger();
   initLectureSorting();
   TextScramble();
