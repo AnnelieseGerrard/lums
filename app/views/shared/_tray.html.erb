@@ -4,8 +4,12 @@
   <div id="lecture-tray" class="d-flex flex-column w-25 tray">
 <% end %>
     <% @course.lectures.order(position: :asc).each do |curriculum_item| %>
-      <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %> 
-      <div class="lecture-card rounded shadow p-3 m-3"> 
+      <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %>
+        <% if @lecture.id == curriculum_item.id %>
+          <div class="lecture-card rounded active shadow p-3 m-3">
+        <% else %>
+          <div class="lecture-card rounded shadow p-3 m-3">
+        <% end %>
         <% if current_user.is_creator %>
           <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
           <%= link_to edit_course_lecture_path(@course, curriculum_item), class: "icon" do  %> 

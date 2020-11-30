@@ -23,15 +23,21 @@ require("@rails/actiontext")
 // Internal imports:
 import { checkScroll } from '../components/navbar';
 import { navChange } from '../components/navbar';
+import { smoothScroll } from '../components/navbar';
 import { initLectureSorting } from '../components/tray';
-import {TextScramble} from '../components/banner'
+// import { trayItemChange } from '../components/tray';
+import { TextScramble } from '../components/banner';
+import { descriptionTrigger } from '../components/home';
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   checkScroll();
+  smoothScroll();
   navChange();
+  // trayItemChange();
+  descriptionTrigger();
   initLectureSorting();
   TextScramble();
 });
