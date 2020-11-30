@@ -19,29 +19,30 @@ import Rails from "@rails/ujs";
 
 // Setting drag and drop for lecture cards
 const initLectureSorting = () => {
-  console.log("loaded initLectureSorting");
   window.Rails = Rails
   const tray = document.getElementById("lecture-tray-sortable");
+  if (tray) {
+    console.log("loaded initLectureSorting");
+    Sortable.create(tray, {
+      ghostClass: "ghost",
+      animation: 150,
+      onEnd: (event) => {
+        console.log(event);
+        let data = new FormData();
 
-  Sortable.create(tray, {
-    ghostClass: "ghost",
-    animation: 150,
-    onEnd: (event) => {
-      console.log(event);
-      let data = new FormData();
-
-      let url = `${event.item.dataset.id}/move`;
-      console.log(url);
-      data.append("position", event.oldIndex);
-      console.log(`old index ${event.oldIndex + 1}`);
-      console.log(`new index ${event.newIndex + 1}`);
-      Rails.ajax({
-        url: url,
-        type: "PATCH",
-        data: data
-      });
-    }
-  });
+        let url = `${event.item.dataset.id}/move`;
+        console.log(url);
+        data.append("position", event.oldIndex);
+        console.log(`old index ${event.oldIndex + 1}`);
+        console.log(`new index ${event.newIndex + 1}`);
+        Rails.ajax({
+          url: url,
+          type: "PATCH",
+          data: data
+        });
+      }
+    });
+  }
 };
 
 export { initLectureSorting };
