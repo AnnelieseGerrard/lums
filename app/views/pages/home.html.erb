@@ -1,1 +1,88 @@
 <%= render 'shared/banner' %>
+
+<header>
+  <h1 id="courses-scroll">EXPLORE</h1>
+</header>
+  <% @courses.each do |course| %>
+    <span class= "course-top">
+      <div class= "course-container">
+        <div class="course-item">
+          <h2><%= course.title.upcase %></h2>
+        </div>
+        <div class="course-item">
+          <h2> DECEMBER 07-FEBRUARY 15, 2020-2021</h2>
+        </div>
+        <div class="course-chevron"><i class="fas fa-chevron-right"></i></i></div>
+      </div>
+    </span>
+
+    <div class="course-description" style="display: none;" id=  <%= @courses.index(course) %>>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home<%= @courses.index(course) %>" role="tab" aria-controls="pills-home" aria-selected="true">Overview</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile<%= @courses.index(course) %>" role="tab" aria-controls="pills-profile" aria-selected="false">Admission</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact<%= @courses.index(course) %>" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews</a>
+        </li>
+
+      </ul>
+
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home<%= @courses.index(course) %>" role="tabpanel" aria-labelledby="pills-home-tab">
+          <h2><%= @courses.index(course) %>1<h2>
+          <p>Our one-week immersive learning expedition brings together the brightest and most forward-thinking CMOs, brand strategists, creative directors and heads of marketing who want to be ahead of the competition, explore the new frameworks that world-class agencies use right now and find new ways to reach their audience.</p>
+        </div>
+
+        <div class="tab-pane fade" id="pills-profile<%= @courses.index(course) %>" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <h2><%= @courses.index(course) %>2</h2>
+        </div>
+
+        <div class="tab-pane fade" id="pills-contact<%= @courses.index(course) %>" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <h2><%= @courses.index(course) %>3</h2>
+          <div class="row">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <img src="http://placehold.it/48x48" class="float-left rounded-circle">
+                <h5 class="card-title">Jess</h5>
+                <h6 class="card-subtitle mb-2 text-muted">5/5</h6>
+                <p class="card-text">I really enjoyed this course. Not only did a learn a tremendous amount, the course was engaging. Cody is a true professional.</p>
+              </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <img src="http://placehold.it/48x48" class="float-left rounded-circle">
+                <h5 class="card-title">Derek Muttonchops</h5>
+                <h6 class="card-subtitle mb-2 text-muted">3/5</h6>
+                <p class="card-text">It was alright. I felt like the basics were a little too basic and the advanced stuff was way too complex.</p>
+              </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <img src="http://placehold.it/48x48" class="float-left rounded-circle">
+                <h5 class="card-title">Tintin</h5>
+                <h6 class="card-subtitle mb-2 text-muted">5/5</h6>
+                <p class="card-text">After my travel journalism gig dried up, I wanted to pivot to something new: Marketing. After this course, I got a new job! Thanks Cody!</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  <% end  %>
+
+<header>
+  <h1 id="about-scroll">ABOUT</h1>
+</header>
+

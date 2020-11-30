@@ -1,6 +1,8 @@
-<form action="<%= exercise_submissions_path(@lecture.exercise) %>" class="dropzone submission-upload" id="submissionUpload" enctype="multipart/form-data">
+<h2 class="mt-5">Please upload your assignment below</h2>
+<hr>
+<form action="<%= exercise_submissions_path(@lecture.exercise) %>" class="dropzone submission-upload mx-auto mt-5" id="submissionUpload" enctype="multipart/form-data">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <i class="fas fa-file-upload d-flex flex-row"></i>
+  <i class="fas fa-file-upload p-0 mr-3"></i>
   <%= hidden_field_tag :user_id, current_user.id %>
   <%= hidden_field_tag :course_id, @lecture.course.id %>
   <%= hidden_field_tag :lecture_id, @lecture.id %>

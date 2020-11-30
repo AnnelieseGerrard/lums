@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :courses, only: [:index, :show] do
-    resources :lectures, only: [:create, :new, :show] do 
+    resources :lectures, only: [:create, :new, :show, :edit, :update, :destroy] do 
       member do 
         patch :move
       end

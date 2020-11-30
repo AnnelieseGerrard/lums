@@ -1,7 +1,10 @@
 .submission-upload {
-  width: 1500px;
+  width: 500px;
   height: 300px;
   margin-left: 60px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .fas.fa-file-upload {
@@ -16,3 +19,10 @@
   margin-left: 50px;
 }
 
+.accepts-submissions-message {
+  color: #59BD81;
+}
+
+.doesnt-accept-submissions-message {
+  color: #EE0036;
+}

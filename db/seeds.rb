@@ -76,7 +76,7 @@ possible_resources = [ppt_file, word_file]
 puts
 puts "##### Building Social Media Marketing Course ##### "
 
-9.times do |i|
+5.times do |i|
   puts "Creating Lecture #{i+1} for the Social Media Marketing Course"
   lecture = Lecture.create(title: "Social Marketing 10#{i+1}", course: social_media_marketing_course, 
                            video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, 
@@ -100,7 +100,7 @@ puts "##### Building Social Media Marketing Course ##### "
   
 puts
 puts "##### Building Direct Marketing Course ##### "
-9.times do |i|
+2.times do |i|
   puts "Creating Lecture #{i+1} for the Direct Marketing Course"
   lecture = Lecture.create(title: "Direct Marketing 10#{i+1}", course: direct_marketing_course, 
                            video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' }, 

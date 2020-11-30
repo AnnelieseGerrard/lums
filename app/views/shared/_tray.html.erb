@@ -13,19 +13,33 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
       </div>
     <% end %>
-    <% @lectures.order(position: :asc).each do |curriculum_item| %>
-      <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %>
-      <div class="lecture-card rounded shadow p-3 m-3">
-        <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
-      </div>
-      <% end %>
-    <% end %>
-    <% if current_user.is_creator? %>
+    <% @course.lectures.order(position: :asc).each do |curriculum_item| %> <!-- For each lecture -->
+        <% if @lecture.id == curriculum_item.id %> <!-- If curriculum_item is selected -->
+          <div class="lecture-card rounded active shadow p-3 m-3" data-id="<%= curriculum_item.id %>" >
+        <% else %>
+          <div class="lecture-card rounded shadow p-3 m-3" data-id="<%= curriculum_item.id %>" >
+        <% end %> <!-- If curriculum_item is selected - End -->
+          <%= link_to course_lecture_path(@course, curriculum_item) do %> <!-- Link for card -->
+            <% if current_user.is_creator %> <!-- If user is creator -->
+              <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
+              <%= link_to edit_course_lecture_path(@course, curriculum_item), class: "icon" do  %> <!-- Link to edit -->
+                <i class="fas fa-pen"></i>
+              <% end %> <!-- Link to edit - End -->
+              <%= link_to course_lecture_path(@course, curriculum_item), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do  %> <!-- Link to delete -->
+                <i class="fas fa-trash"></i> 
+              <% end %> <!-- Link to delete -End -->
+            <% else %>
+              <%= curriculum_item.title %>
+            <% end %> <!-- If user is creator - End -->
+          <% end %> <!-- Link for card - End-->
+          </div>
+    <% end %> <!-- For each lecture - End -->
+    <% if current_user.is_creator %> <!-- If user is creator -->
       <div class="add-lecture-container p-3">
-        <%= link_to  new_course_lecture_path(@course), class: "add-lecture-button" do %>
+        <%= link_to  new_course_lecture_path(@course), class: "add-lecture-button" do %> <!-- Add lecture button -->
           <i class="fas fa-plus"></i>
-        <% end %>
+        <% end %> <!-- Add lecture button - End -->
           <p>Add Lecture</p>
       </div>
-    <% end %>
+    <% end %> <!-- If user is creator - End -->
   </div>
