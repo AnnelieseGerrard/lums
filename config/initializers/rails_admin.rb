@@ -40,7 +40,7 @@ RailsAdmin.config do |config|
     # history_show
   end
   config.main_app_name = ["Lums", "BackOffice"]
-  config.included_models = ["User", "Course" ]
+  config.included_models = ["User", "Course", "Lecture", "Exercise"]
 
   config.model 'User' do
     object_label_method do
@@ -77,6 +77,30 @@ RailsAdmin.config do |config|
     edit do
       field :title
       field :image
+    end
+  end
+
+  config.model 'Lecture' do 
+    list do
+      field :title
+      field :course
+    end
+
+    edit do
+      field :title
+      field :description
+      field :video
+      field :resources
+      field :position
+      field :exercise
+    end
+  end
+
+  config.model 'Exercise' do 
+    edit do
+      field :name
+      field :rich_description
+      field :is_assessed
     end
   end
 
