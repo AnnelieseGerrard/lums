@@ -42,4 +42,4 @@ const initLectureSorting = () => {
   });
 };
 
-export { initLectureSorting, trayItemChange };
+export { initLectureSorting };
