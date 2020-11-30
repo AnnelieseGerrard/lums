@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :submissions
 
   validates :email, presence: true
+  def is_creator?
+    return self.is_creator
+  end
 end
