@@ -32,6 +32,14 @@ class LecturesController < ApplicationController
     @exercise = @lecture.exercise
   end
 
+  def update
+    @lecture = Lecture.find(params[:id])
+    @exercise = @lecture.exercise
+    @lecture.update(lecture_params)
+    @exercise.update(exercise_params)
+    redirect_to course_lecture_path(@lecture.course, @lecture, notice: 'Lecture successfully updated.')
+  end
+
   def destroy
     @course = Course.find(params[:course_id])
     @lecture = Lecture.find(params[:id])
