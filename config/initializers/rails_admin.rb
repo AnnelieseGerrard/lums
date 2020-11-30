@@ -8,9 +8,9 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_user)
 
-  ## == CancanCan ==
-
-  # config.authorize_with :cancancan
+  # == CancanCan ==
+  config.authorize_with :cancancan
+  config.parent_controller = 'ApplicationController'
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -23,13 +23,6 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
-
-  config.authorize_with do
-    unless current_user.is_creator
-      flash[:alert] = 'Sorry, admin access is for course creators only.'
-      redirect_to main_app.root_path
-    end
-  end
 
   config.actions do
     dashboard                     # mandatory
@@ -80,10 +73,11 @@ RailsAdmin.config do |config|
       :course_custom_label_method
     end
   end
-  
+
   def user_custom_label_method
     self.email
   end
+
   def course_custom_label_method
     self.title.split(":").first
   end

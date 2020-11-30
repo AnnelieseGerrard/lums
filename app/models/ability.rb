@@ -4,6 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    alias_action :create, :read, :update, :destroy, to: :crud
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
@@ -30,5 +31,15 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+    if user.present?
+      can :read, Course, { enrollments: { user_id: user.id } }
+      can :read, Lecture, { course: { enrollments: { user_id: user.id } } }
+      if user.is_creator?
+        can :crud, Course, user_id: user.id
+        can [:read, :update], User, { courses_enrolled: { user_id: user.id } }
+        can :access, :rails_admin
+        can :read, :dashboard
+      end
+    end
   end
 end
