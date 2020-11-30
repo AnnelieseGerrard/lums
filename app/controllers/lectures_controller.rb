@@ -11,9 +11,6 @@ class LecturesController < ApplicationController
     @lecture = Lecture.new(lecture_params)
     @course = Course.find(params[:course_id])
     @lecture.course = @course
-    # @exercise = Exercise.new(name: params[:lecture][:exercise][:name],
-    #   rich_description: params[:lecture][:exercise][:rich_description],
-    #   is_assessed: params[:lecture][:exercise][:is_assessed])
     @exercise = Exercise.new(exercise_params)
     @lecture.exercise = @exercise
     if @lecture.valid? && @exercise.valid?
