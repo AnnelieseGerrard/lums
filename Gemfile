@@ -40,6 +40,7 @@ gem 'faker'
 gem 'dropzonejs-rails'
 gem 'acts_as_list' # used to make the lecture cards sortable
 gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
