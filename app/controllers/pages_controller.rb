@@ -3,4 +3,7 @@ class PagesController < ApplicationController
   def home
     @courses = Course.all
   end
+
+  def error_404
+  end
 end
