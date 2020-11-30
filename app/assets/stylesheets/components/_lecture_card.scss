@@ -1,4 +1,16 @@
 .lecture-card {
   background-color: #f3f3f3;
   text-decoration: none;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .drag-icons {
+    margin-right: 4px;
+  }
+
+  a:nth-child(2) {
+    display: inline-block;
+    margin-left: auto !important;
+  }
 }

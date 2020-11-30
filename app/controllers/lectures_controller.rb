@@ -27,6 +27,13 @@ class LecturesController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    @course = Course.find(params[:course_id])
+    @lecture = Lecture.find(params[:id])
+    @lecture.destroy
+    redirect_to course_lecture_path(@course, @course.lectures.first, notice: 'Lecture deleted.')
+  end
 
   def move
     @lecture = Lecture.find(params[:id])
