@@ -48,5 +48,44 @@ RailsAdmin.config do |config|
   end
   config.main_app_name = ["Lums", "BackOffice"]
   config.included_models = ["User", "Course" ]
+
+  config.model 'User' do
+    object_label_method do
+      :user_custom_label_method
+    end
+    list do
+      field :email
+      field :firstname
+      field :lastname
+      field :courses_enrolled
+    end
+
+    edit do 
+      field :email
+      field :firstname
+      field :lastname
+      field :courses_enrolled
+    end
+    
+    show do 
+      field :email
+      field :firstname
+      field :lastname
+      field :courses_enrolled
+    end
+  end
+
+  config.model 'Course' do 
+    object_label_method do
+      :course_custom_label_method
+    end
+  end
+  
+  def user_custom_label_method
+    self.email
+  end
+  def course_custom_label_method
+    self.title.split(":").first
+  end
 end
 
