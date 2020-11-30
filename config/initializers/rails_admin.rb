@@ -54,9 +54,6 @@ RailsAdmin.config do |config|
     end
 
     edit do 
-      field :email
-      field :firstname
-      field :lastname
       field :courses_enrolled
     end
     
@@ -71,6 +68,15 @@ RailsAdmin.config do |config|
   config.model 'Course' do 
     object_label_method do
       :course_custom_label_method
+    end
+    list do
+      field :title
+      field :student_count
+    end
+
+    edit do
+      field :title
+      field :image
     end
   end
 
