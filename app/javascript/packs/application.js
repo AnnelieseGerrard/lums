@@ -25,6 +25,7 @@ import { checkScroll } from '../components/navbar';
 import { navChange } from '../components/navbar';
 import { smoothScroll } from '../components/navbar';
 import { initLectureSorting } from '../components/tray';
+// import { trayItemChange } from '../components/tray';
 import { TextScramble } from '../components/banner';
 import { descriptionTrigger } from '../components/home';
 
@@ -35,6 +36,7 @@ document.addEventListener('turbolinks:load', () => {
   checkScroll();
   smoothScroll();
   navChange();
+  // trayItemChange();
   descriptionTrigger();
   initLectureSorting();
   TextScramble();
