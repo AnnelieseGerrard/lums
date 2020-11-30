@@ -1,30 +1,113 @@
 // Specific CSS for your home-page
 @import "components/banner";
 
-.marquee {
-  width: 99vw;
-  font-size: 100px;
-  margin: 0 auto;
-  white-space: nowrap;
-  overflow: hidden;
-  position: absolute;
-}
+// header for courses display
 
-.marquee span {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 20s linear infinite;
-}
-
-.marquee2 span {
-  animation-delay: 10s;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate(0, 0);
+header {
+  h1 {
+    font-size: 72px;
+    padding-left: 16px;
+    padding-bottom: 16px;
   }
-  100% {
-    transform: translate(-100%, 0);
+  #courses-scroll {
+    margin-top: -88px;
+  }
+  #about-scroll {
+    padding: 24px;
   }
 }
+
+.course-top {
+  cursor: pointer;
+  .fa-chevron-right {
+    transition: 1s;
+  }
+}
+
+// .course-top:hover {
+//   .fa-chevron-right {
+//     transform: rotate(90deg);
+//     transition: 1s;
+//   }
+// }
+
+.fa-chevron-right.rotate {
+  transform: rotate(90deg);
+  transition: 1s;
+}
+
+
+// the grid containing each course's information
+.course-container {
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: auto 7.5%;
+  grid-template-rows: auto auto auto;
+}
+
+
+//styling and position for course name and course dates
+.course-item {
+  min-height: 30px;
+  font-size: 64px;
+  padding-left: 16px;
+  grid-column: 1 / 2;
+}
+
+//styling and position for chevron icon
+.course-chevron {
+  font-size: 48px;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  align-self: center;
+  justify-self: center;
+  }
+
+.course-description {
+  min-height: 200px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: auto;
+  border: 1px solid black;
+}
+
+.row {
+  justify-content: center;
+}
+
+#courses-scroll:before {
+  height: 54px;
+  content: "";
+  display:block;
+}
+
+// animation experiment for pills.
+// .fade-in {
+//   animation: fade-in 1s;
+// }
+
+// .fade-out {
+//   animation: fade-out 1s;
+// }
+
+
+// @keyframes fade-in {
+//   from {
+//     height: 0;
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes fade-out {
+//   from {
+//     opacity: 1;
+//   }
+//   to {
+//     height: 0;
+//     opacity: 0;
+//   }
+// }
+
