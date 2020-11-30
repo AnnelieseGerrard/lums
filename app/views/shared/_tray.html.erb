@@ -13,7 +13,7 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
       </div>
     <% end %>
-    <% @lectures.sort_by {|l| l.position}.each do |curriculum_item| %>
+    <% @lectures.order(position: :asc).each do |curriculum_item| %>
       <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %>
       <div class="lecture-card rounded shadow p-3 m-3">
         <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>

@@ -4,16 +4,9 @@ class LecturesController < ApplicationController
     @course = Course.find(params[:course_id])
     @lecture = Lecture.find(params[:id])
     if params[:query].present?
-      @results = PgSearch.multisearch(params[:query])
-      @lectures = @results.map do |result|
-        if result.searchable.is_a?(Exercise)
-          result.searchable.lecture
-        else
-          result.searchable
-        end
-      end
+      @lectures = Lecture.where(course_id: @course.id).search_by_title_and_description(params[:query])
     else
-      @lectures = Lecture.all
+      @lectures = Lecture.where(course_id: @course.id)
     end
   end
 
