@@ -11,12 +11,13 @@ class LecturesController < ApplicationController
     @lecture = Lecture.new(lecture_params)
     @course = Course.find(params[:course_id])
     @lecture.course = @course
-    @lecture.description = params[:lecture][:description].gsub(/<[^>]+>/, "")
-    @lecture.exercise = Exercise.new(name: params[:lecture][:exercise][:name],
-      rich_description: params[:lecture][:exercise][:rich_description].gsub(/<[^>]+>/, ""),
-      is_assessed: params[:lecture][:exercise][:is_assessed]
-    )
-    if @lecture.save
+    # @exercise = Exercise.new(name: params[:lecture][:exercise][:name],
+    #   rich_description: params[:lecture][:exercise][:rich_description],
+    #   is_assessed: params[:lecture][:exercise][:is_assessed])
+    @exercise = Exercise.new(exercise_params)
+    @lecture.exercise = @exercise
+    if @lecture.valid? && @exercise.valid?
+      @lecture.save
       redirect_to course_lecture_path(@course, @lecture), notice: 'Lecture successfully created.'
     else
       render :new
@@ -49,6 +50,10 @@ class LecturesController < ApplicationController
   private
 
   def lecture_params
-    params.require(:lecture).permit(:title, :description, :video, resources: [])
+    params.require(:lecture).permit(:title, :description, :video, exercise: [], resources: [])
+  end
+
+  def exercise_params
+    params.require(:lecture).require(:exercise).permit(:name, :rich_description, :is_assessed)
   end
 end
