@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 2020_11_30_131717) do
     t.index ["course_id"], name: "index_lectures_on_course_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
   create_table "submissions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "exercise_id", null: false

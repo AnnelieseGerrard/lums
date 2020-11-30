@@ -1,5 +1,5 @@
 class LecturesController < ApplicationController
-  # GET courses/:course_id/lectures/new(.:format)
+   # GET courses/:course_id/lectures/new(.:format)
   def new
     @lecture = Lecture.new
     @exercise = Exercise.new
@@ -21,9 +21,14 @@ class LecturesController < ApplicationController
     end
   end
   
-  def show
+   def show
     @course = Course.find(params[:course_id])
     @lecture = Lecture.find(params[:id])
+    if params[:query].present?
+      @lectures = Lecture.where(course_id: @course.id).search_by_title_and_description(params[:query])
+    else
+      @lectures = Lecture.where(course_id: @course.id)
+    end
   end
 
   def edit
