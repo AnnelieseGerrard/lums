@@ -1,16 +1,11 @@
 class LecturesController < ApplicationController
-  def show
-    @course = Course.find(params[:course_id])
-    @lecture = Lecture.find(params[:id])
-  end
-
   # GET courses/:course_id/lectures/new(.:format)
   def new
     @lecture = Lecture.new
     @exercise = Exercise.new
     @course = Course.find(params[:course_id])
   end
-
+  
   # POST courses/:course_id/lectures(.:format)
   def create
     @lecture = Lecture.new(lecture_params)
@@ -18,9 +13,9 @@ class LecturesController < ApplicationController
     @lecture.course = @course
     @lecture.description = params[:lecture][:description].gsub(/<[^>]+>/, "")
     @lecture.exercise = Exercise.new(name: params[:lecture][:exercise][:name],
-                                     rich_description: params[:lecture][:exercise][:rich_description].gsub(/<[^>]+>/, ""),
-                                     is_assessed: params[:lecture][:exercise][:is_assessed]
-                                     )
+      rich_description: params[:lecture][:exercise][:rich_description].gsub(/<[^>]+>/, ""),
+      is_assessed: params[:lecture][:exercise][:is_assessed]
+    )
     if @lecture.save
       redirect_to course_lecture_path(@course, @lecture), notice: 'Lecture successfully created.'
     else
@@ -28,6 +23,17 @@ class LecturesController < ApplicationController
     end
   end
   
+  def show
+    @course = Course.find(params[:course_id])
+    @lecture = Lecture.find(params[:id])
+  end
+
+  def edit
+    @course = Course.find(params[:course_id])
+    @lecture = Lecture.find(params[:id])
+    @exercise = @lecture.exercise
+  end
+
   def destroy
     @course = Course.find(params[:course_id])
     @lecture = Lecture.find(params[:id])
