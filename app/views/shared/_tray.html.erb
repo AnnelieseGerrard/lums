@@ -7,6 +7,9 @@
       <%= link_to course_lecture_path(@course, curriculum_item), data_id: curriculum_item.id do %> 
       <div class="lecture-card rounded shadow p-3 m-3"> 
         <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
+        <%= link_to course_lecture_path(@course, curriculum_item), method: :delete, data: { confirm: "Are you sure?" } do  %> 
+          <i class="fas fa-trash"></i>
+        <% end %>
       </div>
       <% end %>
     <% end %>
