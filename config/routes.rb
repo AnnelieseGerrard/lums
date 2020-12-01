@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   get "errors/404", to: "errors#error_404"
   
   resources :courses, only: [:index, :show] do
-    resources :lectures, only: [:create, :new, :show, :edit, :update, :destroy] do 
-      member do 
+    resources :reviews, only: [:new, :create]
+    resources :lectures, only: [:create, :new, :show, :edit, :update, :destroy] do
+      member do
         patch :move
       end
     end
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
   resources :exercises, only: [] do
     resources :submissions, only: [:create]
   end
+  # resources :reviews, only: [:new, :create]
 end
