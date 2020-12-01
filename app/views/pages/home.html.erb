@@ -45,39 +45,25 @@
         <div class="tab-pane fade" id="pills-contact<%= @courses.index(course) %>" role="tabpanel" aria-labelledby="pills-contact-tab">
           <h2><%= @courses.index(course) %>3</h2>
           <div class="row">
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <img src="http://placehold.it/48x48" class="float-left rounded-circle">
-                <h5 class="card-title">Jess</h5>
-                <h6 class="card-subtitle mb-2 text-muted">5/5</h6>
-                <p class="card-text">I really enjoyed this course. Not only did a learn a tremendous amount, the course was engaging. Cody is a true professional.</p>
-              </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <img src="http://placehold.it/48x48" class="float-left rounded-circle">
-                <h5 class="card-title">Derek Muttonchops</h5>
-                <h6 class="card-subtitle mb-2 text-muted">3/5</h6>
-                <p class="card-text">It was alright. I felt like the basics were a little too basic and the advanced stuff was way too complex.</p>
-              </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <img src="http://placehold.it/48x48" class="float-left rounded-circle">
-                <h5 class="card-title">Tintin</h5>
-                <h6 class="card-subtitle mb-2 text-muted">5/5</h6>
-                <p class="card-text">After my travel journalism gig dried up, I wanted to pivot to something new: Marketing. After this course, I got a new job! Thanks Cody!</p>
-              </div>
-            </div>
-
+            <% @courses.each do |course|  %>
+              <% course.reviews.order(rating: :desc).first(3).each do |review| %>
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <img src="http://placehold.it/48x48" class="float-left rounded-circle">
+                    <h5 class="card-title"><%= review.user.firstname %></h5>
+                    <div class="d-flex justify-content-center">
+                    <% review.rating.times do  %>
+                      <p><i class="fas fa-star"></i></p>
+                    <% end %>
+                  </div>
+                    <p class="card-text"> <%= review.content %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-
         </div>
-
       </div>
-
     </div>
 
   <% end  %>

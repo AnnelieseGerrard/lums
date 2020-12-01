@@ -28,6 +28,7 @@ import { initLectureSorting } from '../components/tray';
 // import { trayItemChange } from '../components/tray';
 import { TextScramble } from '../components/banner';
 import { descriptionTrigger } from '../components/home';
+import { initStarRating } from '../plugins/init_star_rating';
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {
@@ -36,6 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   checkScroll();
   smoothScroll();
   navChange();
+  initStarRating();
   // trayItemChange();
   descriptionTrigger();
   initLectureSorting();

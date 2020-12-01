@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_131717) do
+ActiveRecord::Schema.define(version: 2020_12_01_104306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,17 @@ ActiveRecord::Schema.define(version: 2020_11_30_131717) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_reviews_on_course_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "submissions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "exercise_id", null: false
@@ -123,6 +134,8 @@ ActiveRecord::Schema.define(version: 2020_11_30_131717) do
   add_foreign_key "enrollments", "users"
   add_foreign_key "exercises", "lectures"
   add_foreign_key "lectures", "courses"
+  add_foreign_key "reviews", "courses"
+  add_foreign_key "reviews", "users"
   add_foreign_key "submissions", "exercises"
   add_foreign_key "submissions", "users"
 end
