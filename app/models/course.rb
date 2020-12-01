@@ -6,4 +6,8 @@ class Course < ApplicationRecord
   
   validates :title, presence: true
   validates :user, presence: true
+
+  def student_count
+    self.enrollments.count
+  end
 end
