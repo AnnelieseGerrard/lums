@@ -15,7 +15,7 @@
     <% end %>
     <% @lectures.order(position: :asc).each do |curriculum_item| %> <!-- For each lecture -->
         <% if @lecture.id == curriculum_item.id %> <!-- If curriculum_item is selected -->
-          <div class="lecture-card rounded active shadow p-3 m-3" data-id="<%= curriculum_item.id %>" >
+          <div class="lecture-card rounded active shadow p-3 m-3" data-id="<%= curriculum_item.id %>" id="lecture-card-<%= curriculum_item.id %>" >
         <% else %>
           <div class="lecture-card rounded shadow p-3 m-3" data-id="<%= curriculum_item.id %>" >
         <% end %> <!-- If curriculum_item is selected - End -->
@@ -25,9 +25,11 @@
               <%= link_to edit_course_lecture_path(@course, curriculum_item), class: "icon" do  %> <!-- Link to edit -->
                 <i class="fas fa-pen"></i>
               <% end %> <!-- Link to edit - End -->
-              <%= link_to course_lecture_path(@course, curriculum_item), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do  %> <!-- Link to delete -->
-                <i class="fas fa-trash"></i> 
-              <% end %> <!-- Link to delete -End -->
+              <div class="icon delete-lecture-icon-fake", data-lecture-id="<%= curriculum_item.id %>">
+                <i class="fas fa-trash"></i>
+              </div>
+              <%= link_to course_lecture_path(@course, curriculum_item), method: :delete, id:"delete-lecture-#{curriculum_item.id}", class: "delete-lecture-icon-real", remote: true do %>
+              <% end %>
             <% else %>
               <%= curriculum_item.title %>
             <% end %> <!-- If user is creator - End -->
