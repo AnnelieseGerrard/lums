@@ -25,12 +25,15 @@ class LecturesController < ApplicationController
   
   def show
     @course = Course.find(params[:course_id])
-
-    @lecture = Lecture.find(params[:id])
-    if params[:query].present?
-      @lectures = Lecture.where(course_id: @course.id).search_by_title_and_description(params[:query])
+    if can?(:read, @course)
+      @lecture = Lecture.find(params[:id])
+      if params[:query].present?
+        @lectures = Lecture.where(course_id: @course.id).search_by_title_and_description(params[:query])
+      else
+        @lectures = Lecture.where(course_id: @course.id)
+      end
     else
-      @lectures = Lecture.where(course_id: @course.id)
+      redirect_to errors_404_path
     end
   end
 
