@@ -71,6 +71,6 @@ class LecturesController < ApplicationController
   end
 
   def exercise_params
-    params.require(:lecture).require(:exercise).permit(:name, :rich_description, :is_assessed)
+    params.require(:lecture).require(:exercise_attributes).permit(:name, :rich_description, :is_assessed)
   end
 end
