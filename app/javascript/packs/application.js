@@ -29,6 +29,7 @@ import { initLectureSorting } from '../components/tray';
 import { TextScramble } from '../components/banner';
 import { descriptionTrigger } from '../components/home';
 import { initNewLectureUploadAlert, initAreYouSureAlertForDestroyLecture } from '../components/sweet_alerts';
+import { initStarRating } from '../plugins/init_star_rating';
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {
@@ -37,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   checkScroll();
   smoothScroll();
   navChange();
+  initStarRating();
   initNewLectureUploadAlert();
   initAreYouSureAlertForDestroyLecture();
   // trayItemChange();

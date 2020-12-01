@@ -10,6 +10,7 @@
     "@zoomus/websdk": "^1.8.3",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "jquery-bar-rating": "^1.2.2",
     "popper.js": "^1.16.1",
     "sortablejs": "^1.12.0",
     "sweetalert2": "^10.10.4",
