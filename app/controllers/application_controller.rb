@@ -10,6 +10,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    respond_to do |format|
+      format.json { head :forbidden, content_type: 'text/html' }
+      format.html { redirect_to main_app.errors_404_path, notice: exception.message }
+      format.js   { head :forbidden, content_type: 'text/html' }
+    end
+  end
+
+  ActiveRecord::RecordNotFound
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
