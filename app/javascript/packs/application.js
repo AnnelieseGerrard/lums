@@ -28,7 +28,7 @@ import { initLectureSorting } from '../components/tray';
 // import { trayItemChange } from '../components/tray';
 import { TextScramble } from '../components/banner';
 import { descriptionTrigger } from '../components/home';
-import { initNewLectureUploadAlert } from '../components/lecture_upload';
+import { initNewLectureUploadAlert, initAreYouSureAlertForDestroyLecture } from '../components/sweet_alerts';
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {
@@ -38,9 +38,10 @@ document.addEventListener('turbolinks:load', () => {
   smoothScroll();
   navChange();
   initNewLectureUploadAlert();
+  initAreYouSureAlertForDestroyLecture();
   // trayItemChange();
   descriptionTrigger();
   initLectureSorting();
-  TextScramble();
+  // TextScramble();
 });
 
