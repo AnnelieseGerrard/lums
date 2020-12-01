@@ -22,7 +22,7 @@ const initLectureSorting = () => {
   window.Rails = Rails
   const tray = document.getElementById("lecture-tray-sortable");
   if (tray) {
-    console.log("loaded initLectureSorting");
+    console.log(tray);
     Sortable.create(tray, {
       ghostClass: "ghost",
       animation: 150,
@@ -32,9 +32,9 @@ const initLectureSorting = () => {
 
         let url = `${event.item.dataset.id}/move`;
         console.log(url);
-        data.append("position", event.oldIndex);
-        console.log(`old index ${event.oldIndex + 1}`);
-        console.log(`new index ${event.newIndex + 1}`);
+        data.append("position", event.newIndex + 1);
+        console.log(`old index ${event.oldIndex}`);
+        console.log(`new index ${event.newIndex}`);
         Rails.ajax({
           url: url,
           type: "PATCH",
