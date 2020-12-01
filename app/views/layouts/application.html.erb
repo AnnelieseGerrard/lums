@@ -13,7 +13,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
     <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
-    <%= stylesheet_link_tag params[:controller] %>
+    <% begin %>
+      <%= stylesheet_link_tag params[:controller] %>
+    <% rescue %>
+    <% end %>
     <script>
       Dropzone.options.submissionUpload = {
       paramName: "file", // The name that will be used to transfer the file
