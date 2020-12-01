@@ -18,7 +18,7 @@
             <% if @lecture.id == curriculum_item.id %> <!-- If curriculum_item is selected -->
               <div class="lecture-card rounded active shadow p-3 m-3" data-id="<%= curriculum_item.id %>" id="lecture-card-<%= curriculum_item.id %>" >
             <% else %>
-              <div class="lecture-card rounded shadow p-3 m-3" data-id="<%= curriculum_item.id %>" >
+              <div class="lecture-card rounded shadow p-3 m-3" data-id="<%= curriculum_item.id %>" id="lecture-card-<%= curriculum_item.id %>" >
             <% end %> <!-- If curriculum_item is selected - End -->
               <%= link_to course_lecture_path(@course, curriculum_item) do %> <!-- Link for card -->
                 <% if current_user.is_creator %> <!-- If user is creator -->

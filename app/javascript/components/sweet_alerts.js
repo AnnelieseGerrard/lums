@@ -8,13 +8,6 @@ const newLectureProcessingAlert = () => {
   Swal.showLoading();
 }
 
-const clickOnFirstLecture = () => {
-  const first_lecture_card = document.querySelector('.lecture-card')
-  if (first_lecture_card) {
-    first_lecture_card.children[0].click()
-  }
-}
-
 const areYouSureAlertForDestroyLecture = (event) => {
   const lectureId = event.path[1].dataset.lectureId
   Swal.fire({
@@ -34,7 +27,6 @@ const areYouSureAlertForDestroyLecture = (event) => {
       )
       document.getElementById(`delete-lecture-${lectureId}`).click()
       document.getElementById(`lecture-card-${lectureId}`).remove()
-      clickOnFirstLecture()
     }
   })
 }
