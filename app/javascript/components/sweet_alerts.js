@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-export const newLectureProcessingAlert = () => {
+const newLectureProcessingAlert = () => {
   Swal.fire({
     title: 'Processing...',
     text: 'Please wait...',
@@ -8,7 +8,14 @@ export const newLectureProcessingAlert = () => {
   Swal.showLoading();
 }
 
-export const areYouSureAlertForDestroyLecture = (event) => {
+const clickOnFirstLecture = () => {
+  const first_lecture_card = document.querySelector('.lecture-card')
+  if (first_lecture_card) {
+    first_lecture_card.children[0].click()
+  }
+}
+
+const areYouSureAlertForDestroyLecture = (event) => {
   const lectureId = event.path[1].dataset.lectureId
   Swal.fire({
     title: 'Are you sure?',
@@ -27,11 +34,12 @@ export const areYouSureAlertForDestroyLecture = (event) => {
       )
       document.getElementById(`delete-lecture-${lectureId}`).click()
       document.getElementById(`lecture-card-${lectureId}`).remove()
+      clickOnFirstLecture()
     }
   })
 }
 
-export const initNewLectureUploadAlert = () => {
+const initNewLectureUploadAlert = () => {
   const newLectureButton = document.getElementById("newLectureSubmitButton");
 
   if (newLectureButton) {
@@ -41,7 +49,7 @@ export const initNewLectureUploadAlert = () => {
   };
 };
 
-export const initAreYouSureAlertForDestroyLecture = () => {
+const initAreYouSureAlertForDestroyLecture = () => {
   console.log("hello");
   const deleteIcons = document.querySelectorAll(".delete-lecture-icon-fake");
   console.log(deleteIcons);
@@ -55,3 +63,5 @@ export const initAreYouSureAlertForDestroyLecture = () => {
     })
   }
 }
+
+export { initAreYouSureAlertForDestroyLecture, initNewLectureUploadAlert } 
