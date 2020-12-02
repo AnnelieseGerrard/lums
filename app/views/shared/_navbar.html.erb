@@ -16,7 +16,7 @@
   <% if user_signed_in? %>
     <ul class="secondary-nav">
       <li class="nav-item dropdown">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= image_tag "https://eu.ui-avatars.com/api/?name=#{current_user.firstname}+#{current_user.lastname}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Courses", courses_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item logout" %>
@@ -31,3 +31,4 @@
       </ul>
     <% end %>
 </nav>
+
