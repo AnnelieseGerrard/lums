@@ -1,28 +1,75 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6 pt-3">
-  <h2 class="mb-4">Log in</h2>
-
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs red">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class= "login-container">
+  <div class="login-card">
+    <div class="login-logo">
+      <%= image_tag "logo200x200.png", class: "login-logo-image" %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn btn-outline-dark mb-3" %>
-    </div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="login-username">
+        <%= f.input :email,
+                      label: false,
+                      required: false,
+                      autofocus: true,
+                      inline_label: 'Username',
+                      input_html: {placeholder: "email", autocomplete: "email" } %>
+      </div>
+      <div class="login-password">
+        <%= f.input :password,
+                    label: false,
+                    required: false,
+                    input_html: {placeholder: "password", autocomplete: "current-password" } %>
+      </div>
+      <div class="login-remember">
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+      <div class="login-button">
+        <%= f.button :submit, "Log in", class: "lums-button primary-button" %>
+      </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
-    </div>
+  <div class="login-signup">
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <p>No account? <%= link_to "Create.", new_registration_path(resource_name), class: "signup-text" %></p>
+    <% end %>
   </div>
+
+    <div class="login-retrieval">
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "password-forgotten" %><br />
+      <% end %>
+    </div>
+
+  </div>
+
 </div>
+
+
+
+
+<!--       <div class="login-username">
+        <p>username</p>
+      </div> -->
+<!--       <div class="login-password">
+        <p>password</p>
+      </div> -->
+<!--       <div class="login-retrieval">
+        <p>lost?</p>
+
+      <div class="login-account">
+        <p>no account?</p>
+      </div>
+      <div class="login-button">
+        <p>login!</p>
+      </div> -->
+
+
+
+
+
+
+
+
+
+
+
 
 
