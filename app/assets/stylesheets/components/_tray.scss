@@ -4,7 +4,7 @@
 }
 
 .tray {
-  overflow: scroll;
+  overflow-y: scroll;
   position: fixed;
   max-height: 95vh;
   height: 100%;
