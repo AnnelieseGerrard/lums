@@ -1,6 +1,7 @@
 .lecture-show {
   display: flex;
   width: 100%;
+  background-color: #FAFAFA;
 }
 
 .lecture-show-content {
@@ -15,6 +16,7 @@
   video {
   height: 500px;
   width: 800px;
+  font-size: 50px;
   }
 }
 

@@ -28,8 +28,8 @@ import { initLectureSorting } from '../components/tray';
 // import { trayItemChange } from '../components/tray';
 import { TextScramble } from '../components/banner';
 import { descriptionTrigger } from '../components/home';
+import { initNewLectureUploadAlert, initAreYouSureAlertForDestroyLecture } from '../components/sweet_alerts';
 import { initStarRating } from '../plugins/init_star_rating';
-import { initNewLectureUploadAlert } from '../components/lecture_upload';
 
 //turbolinks import
 document.addEventListener('turbolinks:load', () => {
@@ -40,9 +40,10 @@ document.addEventListener('turbolinks:load', () => {
   navChange();
   initStarRating();
   initNewLectureUploadAlert();
+  initAreYouSureAlertForDestroyLecture();
   // trayItemChange();
   descriptionTrigger();
   initLectureSorting();
-  TextScramble();
+  // TextScramble();
 });
 
