@@ -68,57 +68,88 @@ puts "Downloading Video File from Cloudinary"
 video_file = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1606330186/lums/seed_originals/intro_to_marketing_short_ioorcw.webm')
 puts "Downloading Powerpoint File from Cloudinary"
 ppt_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606246928/lums/seed_originals/Lums_vunfrx.pptx')
-puts "Downloading Word Doc from Cloudinary"
-word_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606248758/lums/seed_originals/quiz1_pi2mjq.docx')
 
-possible_resources = [ppt_file, word_file]
+social_media_course_lecture_titles = ["Course Introduction", "Setup", "The Golden rule: Tailor, Tailor Tailor!", 
+                                      "Facebook Ads - What works best?", "Creating Facebook Ads", "Managing Facebook campaigns", 
+                                      "Youtube - What works best?", "Creating Youtube Ads", "Managing YouTube campaigns"]
+
+social_media_course_lecture_descriptions = [
+  "In this lecture, you will receive an overview of the course, and by the end you will have a clear understanding of what is coming",
+  "In this lecture, you will setup all the accounts needed for the course, and by the end you will fully setup your Facebook, and Youtube marketing accounts",
+  "In this lecture, you will learn the golden rule of online marketing -- Tailor, Tailor, Tailor!",
+  "In this lecture, you will learn what works types of ads work best on the Facebook platform",
+  "In this lecture, you will learn about the Facebook back panel, and by the end you be able to create your own Facebook ads",
+  "In this lecture, you will learn about the Facebook campaign interface, and by the end you be able to track progress on your Facebook ads campaigns, and evaluate their performance",
+  "In this lecture, you will learn what types of ads work best on the YouTube platform",
+  "In this lecture, you will learn how to create ads in Youtube",
+  "In this lecture, you will learn about the Youtube back panel, and by the end you be able to create your own Youtube ads",
+  "In this lecture, you will learn about the Youtube campaign interface, and by the end you be able to track progress on your Youtube ads campaigns, and evaluate their performance"
+  ]
+
+social_media_course_exercise_titles = []
+social_media_course_lecture_titles.each {|title| social_media_course_exercise_titles << "#{title} - Exercise"}
+
+
+ social_media_course_exercise_descriptions = [
+   "Make a plan of your goals for the course",
+   "Setup all your accounts following the steps in the lecture",
+   "Make a list of the different platforms you are on, and the ways that you have noticed the platform culture differing",
+   "Make a plan for how you can take advantage of the specific things that work on Facebook for your campaigns",
+   "Create your first facebook ad using the Facebook back panel!",
+   "Run different variations of your Facebook campaign, and run an analysis to find which version performed best",
+   "Make a plan for how you can take advantage of the specific things that work on YouTube for your campaigns",
+   "Create your first YouTube ad using the YouTube back panel!",
+   "Run different variations of your YouTube campaign, and run an analysis to find which version performed best"
+ ]
 
 puts
 puts "##### Building Social Media Marketing Course ##### "
 
-5.times do |i|
-  puts "Creating Lecture #{i+1} for the Social Media Marketing Course"
-  lecture = Lecture.create(title: "Social Marketing 10#{i+1}", course: social_media_marketing_course, 
-                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, 
-                           resources: [], position: i+1)
-    
-    puts "Attaching Lecture #{i+1} resources for the Social Media Marketing Course"
-    n_resources = (0 .. possible_resources.length).to_a.sample
-    lecture_resources = possible_resources.sample(n_resources)
-    lecture_resources.each do |resource|
-      if resource.object_id == ppt_file.object_id
-        lecture.resources.attach(io: File.open(ppt_file), filename: "lecture_slides.pptx", content_type: ppt_file.content_type)
-      else
-        lecture.resources.attach(io: File.open(word_file), filename: "further_reading.docx", content_type: word_file.content_type)
-      end
-    end
-    
-    puts "Creating Exercise #{i+1} for the Social Media Marketing Course"
-    Exercise.create(name: "Exercise 10#{i+1}", rich_description: Faker::Markdown.sandwich(sentences: 6, repeat: 5), lecture: lecture)
-    puts 
-  end 
-  
-puts
-puts "##### Building Direct Marketing Course ##### "
-2.times do |i|
-  puts "Creating Lecture #{i+1} for the Direct Marketing Course"
-  lecture = Lecture.create(title: "Direct Marketing 10#{i+1}", course: direct_marketing_course, 
-                           video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' }, 
-                           position: i+1)
+social_media_course_curriculum_items = social_media_course_lecture_titles.zip(social_media_course_lecture_descriptions, 
+                                                                              social_media_course_exercise_titles,
+                                                                              social_media_course_exercise_descriptions)
 
-  puts "Creating Exercise #{i+1} for the Direct Marketing Course"
-  Exercise.create(name: "Exercise 10#{i+1}", rich_description: Faker::Markdown.sandwich(sentences: 6, repeat: 5), lecture: lecture)
-  puts
-end 
+social_media_course_curriculum_items.each_with_index do |data, index|
+  title = data[0]
+  lecture_description = data[1]
+  exercise_title = data[2]
+  exercise_description = data[3]
+
+  puts "Creating Lecture #{index + 1} for the Social Media Marketing Course"
+  lecture = Lecture.create(title: title, course: social_media_marketing_course, description: lecture_description,
+                            video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, 
+                            resources: [], position: index+1)
+  
+  puts "Attaching Lecture #{index + 1} resources for the Social Media Marketing Course"
+  lecture.resources.attach(io: File.open(ppt_file), filename: "lecture_slides.pptx", content_type: ppt_file.content_type) 
+  puts "Creating Exercise #{index + 1} for the Social Media Marketing Course"
+  Exercise.create(name: exercise_title, rich_description: exercise_description, lecture: lecture)
+end
+
+social_media_marketing_course.lectures.last.exercise.is_assessed = true
+social_media_marketing_course.lectures.last.exercise.save
+
+# puts
+# puts "##### Building Direct Marketing Course ##### "
+# 9.times do |i|
+#   puts "Creating Lecture #{i+1} for the Direct Marketing Course"
+#   lecture = Lecture.create(title: "Direct Marketing 10#{i+1}", course: direct_marketing_course, 
+#                            video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mp4' }, 
+#                            position: i+1)
+
+#   puts "Creating Exercise #{i+1} for the Direct Marketing Course"
+#   Exercise.create(name: "Exercise 10#{i+1}", rich_description: Faker::Markdown.sandwich(sentences: 6, repeat: 5), lecture: lecture)
+#   puts
+# end 
 
 # Make it so the last lecture in each course accepts submissions
-puts
-puts "##### Making last lecture of each course accept submissions ##### "
-[social_media_marketing_course, direct_marketing_course].each do |course|
-  last_exercise = course.lectures.last.exercise
-  last_exercise.is_assessed = true
-  last_exercise.save
-end
+# puts
+# puts "##### Making last lecture of each course accept submissions ##### "
+# [social_media_marketing_course, direct_marketing_course].each do |course|
+#   last_exercise = course.lectures.last.exercise
+#   last_exercise.is_assessed = true
+#   last_exercise.save
+# end
 
 puts
 puts "Database seeded successfully."
