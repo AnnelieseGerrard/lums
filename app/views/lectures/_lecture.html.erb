@@ -18,12 +18,12 @@
           <%= cl_video_tag(@lecture.video.key,
             :controls => true,
             :transformation => [
-            :height=>500, :width=>800, :crop=>"pad",
+            :height=>500, :width=>800,
             :quality=>70, :duration=>"10"],
             :fallback_content => "Your browser does not support HTML5 video tags." )
           %>
         </section>
-        <section class="mt-4">
+        <section class="w-75 mt-4">
         <h2>Lecture Description</h2>
         <hr>
         <p><%= @lecture.description %></p>
