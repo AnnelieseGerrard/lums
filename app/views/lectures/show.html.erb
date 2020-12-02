@@ -3,11 +3,14 @@
   <div class="lecture-show-content">
     <%= render "lecture" %>
   </div>
-  <div>
-<!-- Calendly badge widget begin -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-<script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/soel-labat/30min?primary_color=6261ee', text: 'Struggling? Call me!', color: '#6261ee', textColor: '#ffffff' });</script>
-<!-- Calendly badge widget end -->
+
+  <% unless current_user.courses_created.include?(@course) %>
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+    <script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/soel-labat/30min?primary_color=6261ee', text: 'Struggling? Call me!', color: '#ee0036', textColor: '#ffffff', });</script>
+    <!-- Calendly badge widget end -->
+  <% end %>
+
 </div>
 
