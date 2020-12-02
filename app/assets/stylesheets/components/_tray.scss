@@ -4,6 +4,7 @@
 }
 
 .tray {
+  overflow-y: scroll;
   position: fixed;
   height: 100vh;
   background-color: #FFFFFF;
@@ -21,8 +22,6 @@
       background-color: #444444;
     }
   }
-
-
   a, span{
     text-decoration: none;
     color: #333;

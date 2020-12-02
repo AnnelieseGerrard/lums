@@ -38,9 +38,7 @@
   background-repeat: no-repeat;
 }
 
-.positive-button {
-  bottom: 30px;
-}
+
 
 .course-dashboard-info{
   display: flex;
@@ -72,12 +70,16 @@
   padding: 30px;
   position: relative;
   width: 100%;
+  .primary-button {
+    bottom: 30px;
+    right: 30px;
+  }
+  .positive-button {
+    bottom: 30px;
+  }
 }
 
-.primary-button {
-  bottom: 30px;
-  right: 30px;
-}
+
 
 
 

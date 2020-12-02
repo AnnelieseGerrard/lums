@@ -1,6 +1,6 @@
   <div class="d-flex flex-column w-25 tray">
     <%= form_tag course_lecture_path(@course, @lecture), method: :get do %>
-      <div class="d-flex pt-3 px-3 pb-4">
+      <div class="d-flex pt-3 px-3">
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
