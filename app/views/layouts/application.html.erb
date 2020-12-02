@@ -3,7 +3,9 @@
   <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <title><%= meta_title %></title>
+     <%= favicon_link_tag %>
     <meta name="description" content="<%= meta_description %>">
 
     <!-- Facebook Open Graph data -->
@@ -21,6 +23,7 @@
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
