@@ -24,8 +24,8 @@ puts "Creating Cody and Jess"
 cody = User.create(email: "cody@gmail.com", password: "password", firstname: "Cody", lastname: "Cell", is_creator: true)
 jess = User.create(email: "jess@gmail.com", password: "password", firstname: "Jess", lastname: "Smith")
 
-puts "Creating 33 other Users"
-33.times do 
+puts "Creating 350 other Users"
+350.times do 
   User.create(email: Faker::Internet.unique.email, password: Faker::Internet.password(min_length: 8, max_length: 12), 
               firstname: Faker::Name.first_name, lastname: Faker::Name.last_name)
 end
