@@ -12,7 +12,7 @@
       <div class="course-info">
         <h6>Course</h6>
         <h2><%= course.title %></h2>
-        <%= link_to course_lecture_path(course, course.lectures.last), class: "lums-button primary-button" do %>
+        <%= link_to course_lecture_path(course, course.lectures.first), class: "lums-button primary-button" do %>
           <i class="fas fa-chevron-circle-right"></i>
           <span class="button-text">Continue</span>
         <% end %>
