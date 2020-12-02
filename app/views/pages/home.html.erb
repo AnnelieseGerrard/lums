@@ -1,74 +1,124 @@
 <%= render 'shared/banner' %>
 
-<header>
-  <h1 id="courses-scroll">EXPLORE</h1>
-</header>
-  <% @courses.each do |course| %>
-    <span class= "course-top">
-      <div class= "course-container">
-        <div class="course-item">
-          <h2><%= course.title.upcase %></h2>
-        </div>
-        <div class="course-item">
-          <h2> DECEMBER 07-FEBRUARY 15, 2020-2021</h2>
-        </div>
-        <div class="course-chevron"><i class="fas fa-chevron-right"></i></i></div>
+<h1 class="text-center pb-4">Our Online Courses</h1>
+
+<div class="card_container">
+    <div class="card-product courses">
+      <img src="assets/socialmedia.png" alt="Social Media">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h2>Social Media Superstar</h2>
+        <p>Master selling in the digital age</p>
+       <a href="#" class="btn-blue padding-button">View Course</a>
       </div>
-    </span>
+    </div>
 
-    <div class="course-description" style="display: none;" id=  <%= @courses.index(course) %>>
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home<%= @courses.index(course) %>" role="tab" aria-controls="pills-home" aria-selected="true">Overview</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile<%= @courses.index(course) %>" role="tab" aria-controls="pills-profile" aria-selected="false">Admission</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact<%= @courses.index(course) %>" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews</a>
-        </li>
-
-      </ul>
-
-      <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home<%= @courses.index(course) %>" role="tabpanel" aria-labelledby="pills-home-tab">
-          <h2><%= @courses.index(course) %>1<h2>
-          <p>Our one-week immersive learning expedition brings together the brightest and most forward-thinking CMOs, brand strategists, creative directors and heads of marketing who want to be ahead of the competition, explore the new frameworks that world-class agencies use right now and find new ways to reach their audience.</p>
+      <div class="card-product courses">
+        <img src="assets/socialmediaharassment.jpg" alt="Social Media">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h2 class="text-center">Socially Acceptable Harassment</h2>
+          <p>How to never take no for an answer</p>
+          <a href="#" class="btn-blue padding-button">View Course</a>
         </div>
+      </div>
+    </div>
 
-        <div class="tab-pane fade" id="pills-profile<%= @courses.index(course) %>" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <h2><%= @courses.index(course) %>2</h2>
+  <h1 class="text-center pb-4 pt-5">How We're Different</h1>
+
+  <div class="different">
+    <div class="card-different">
+      <img src="assets/cloud1.png" width="100px" alt="symbol" class="img-circle">
+      <h2 class="mt-3">Creativity first</h2>
+      <p class="text-center">Our courses are tailored for those who work, or want to work, in the creative industries. You don't need to be a designer, just someone who enjoys making things. No wannabe tech bros.</p>
+    </div>
+
+    <div class="card-different">
+      <img src="assets/speech.png" width="100px" alt="symbol" class="img-circle">
+      <h2 class="mt-3">Practical teaching</h2>
+      <p class="text-center">Our courses are tailored for those who work, or want to work, in the creative industries. You don't need to be a designer, just someone who enjoys making things. No wannabe tech bros.</p>
+    </div>
+
+    <div class="card-different">
+      <img src="assets/heart.png" width="100px" alt="symbol" class="img-circle">
+      <h2 class="mt-3">Our community</h2>
+      <p class="text-center">Our courses are tailored for those who work, or want to work, in the creative industries. You don't need to be a designer, just someone who enjoys making things. No wannabe tech bros.</p>
+    </div>
+
+    <div class="card-different">
+      <img src="assets/Star3.png" width="100px" alt="symbol" class="img-circle">
+      <h2 class="mt-3">Lifetime access</h2>
+      <p class="text-center">Our courses are tailored for those who work, or want to work, in the creative industries. You don't need to be a designer, just someone who enjoys making things. No wannabe tech bros.</p>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="signup pt-5">
+<div class="card-product">
+        <img src="assets/student.png" alt="Social Media">
+        <div class="px-4">
+          <h2 class="mb-4">Get started and sign up here to become a social media expert!</h2>
+          <p class="mb-4">Curious about all things social media but unsure where to start?</p>
+            <div>
+  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+    <div class="search-form-control form-group">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+
+      <button name="button" type="submit" class="btn btn-flat">
+        <i></i> Sign up!
+      </button>
+    </div>
+  </form>
+</div>
         </div>
+      </div>
+    </div>
 
-        <div class="tab-pane fade" id="pills-contact<%= @courses.index(course) %>" role="tabpanel" aria-labelledby="pills-contact-tab">
-          <h2><%= @courses.index(course) %>3</h2>
-          <div class="row">
+
+
+
+  <h1 class="text-center pb-4 pt-5">Reviews</h1>
+          <div class="d-flex different-reviews">
             <% @courses.each do |course|  %>
-              <% course.reviews.order(rating: :desc).first(3).each do |review| %>
-                <div class="card" style="width: 18rem;">
+              <% course.reviews.order(rating: :desc).first(4).each do |review| %>
+                <div class="card-review" style="width: 18rem;">
                   <div class="card-body">
-                    <img src="http://placehold.it/48x48" class="float-left rounded-circle">
-                    <h5 class="card-title"><%= review.user.firstname %></h5>
-                    <div class="d-flex justify-content-center">
-                    <% review.rating.times do  %>
-                      <p><i class="fas fa-star"></i></p>
-                    <% end %>
+                    <div class="d-flex flex-column align-items-center">
+                    <img id="review-avatar" src="http://placehold.it/48x48">
+                    <h5 class="card-title mt-2"><%= review.user.firstname %></h5>
+                    </div>
+                    <div class="d-flex align-items-center flex-column">
+                    <div class="d-flex">
+                      <% review.rating.times do  %>
+                        <p><i class="fas fa-star"></i></p>
+                      <% end %>
+                    </div>
+                    <div>
+                      <p class="card-text"> <%= review.content %></p>
+                    </div>
                   </div>
-                    <p class="card-text"> <%= review.content %></p>
                   </div>
                 </div>
               <% end %>
             <% end %>
           </div>
-        </div>
-      </div>
-    </div>
 
-  <% end  %>
 
-<header>
-  <h1 id="about-scroll">ABOUT</h1>
-</header>
+          <div class="footer mt-5">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Do not hesitate to follow us <i class="fas fa-heart"></i>
+  </div>
+</div>
+
+
+
+
 
