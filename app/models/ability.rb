@@ -34,6 +34,7 @@ class Ability
     if user.present?
       can :read, Course, { enrollments: { user_id: user.id } }
       can :read, Lecture, { course: { enrollments: { user_id: user.id } } }
+      can :crud, Review, { user_id: user.id }
       if user.is_creator?
         can :crud, Course, user_id: user.id
         can [:read, :update], User, { courses_enrolled: { user_id: user.id } }
