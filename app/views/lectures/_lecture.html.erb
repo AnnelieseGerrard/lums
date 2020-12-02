@@ -15,7 +15,6 @@
           <hr>
         </header>
         <section>
-          <%= @lecture.description %>
           <%= cl_video_tag(@lecture.video.key,
             :controls => true,
             :transformation => [
@@ -24,7 +23,12 @@
             :fallback_content => "Your browser does not support HTML5 video tags." )
           %>
         </section>
-        <section class="w-75 mt-5">
+        <section class="mt-4">
+        <h2>Lecture Description</h2>
+        <hr>
+        <p><%= @lecture.description %></p>
+        </section>
+        <section class="w-75 mt-4">
           <h2>Resources</h2>
           <hr>
           <% if @lecture.resources.count == 0 %>
