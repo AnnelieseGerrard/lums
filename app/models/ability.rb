@@ -41,6 +41,7 @@ class Ability
         can :create, Lecture
         can :access, :rails_admin
         can :read, :dashboard
+        cannot :manage, Review, { course: { user_id: user.id } }
       end
     end
   end
