@@ -1,4 +1,33 @@
-<div class="cards">
+<div class="courses-container">
+  <% @courses.each do |course| %>
+    <div class="course">
+      <div class="course-preview" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path course.image.key %>');">
+        <h6>Info</h6>
+        <div class="course-dashboard-info">
+          <i class="fas fa-user-graduate"><span class="course-info-text"> <%= course.enrollments.count %>— Students</span></i>
+          <i class="fas fa-video"><span class="course-info-text"> <%= course.lectures.count %>— Lectures</span></i>
+          <i class="fas fa-book-open"><span class="course-info-text"> <% exercise_array = [] %><% course.lectures.each do |lecture| %><% exercise_array << lecture.exercise %><% end %><%= exercise_array.count %>— Exercises</span></i>
+        </div>
+      </div>
+      <div class="course-info">
+        <h6>Course</h6>
+        <h2><%= course.title %></h2>
+        <%= link_to course_lecture_path(course, course.lectures.last), class: "lums-button primary-button" do %>
+          <i class="fas fa-chevron-circle-right"></i>
+          <span class="button-text">Continue</span>
+        <% end %>
+        <%= link_to new_course_review_path(course), class: "lums-button positive-button" do %>
+          <i class="fas fa-comments"></i>
+          <span class="button-text">Leave a review</span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<!-- <div class="cards">
   <% @courses.each do |course| %>
     <%= link_to course_lecture_path(course.id, course.lectures.first.id), class:"course-card" do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path course.image.key %>');">
@@ -16,5 +45,5 @@
       </div>
     <% end %>
   <% end %>
-</div>
+</div> -->
 

@@ -1,56 +1,139 @@
-.cards {
-  display: grid;
-  grid-template-columns: 45% 45%;
-  grid-gap: 16px;
-  padding: 16px;
-  padding-top: 32px;
-  justify-content: center;
+.courses-container {
+  display: inline-flex;
+  width: 100vw;
+
 }
 
-.card-category {
-  /* sizing of container */
-  height: 69vh;
-  /* positioning in container */
+.course {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  /* styling of container */
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  min-height:300px;
+  max-width: 100%;
+  margin: 20px;
+  overflow: hidden;
+  width: 700px;
+}
 
-  /* sizing of background image */
+.course h6 {
+  opacity: 0.6;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.course h2 {
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+
+.course-preview {
+  background-color: #2A265F;
+  color: #fff;
+  padding: 30px;
+  width: 325px;
+  max-width: 350px;
   background-size: cover;
-  /* positioning of background image */
-  background-position: center;
-
-  /* styling of text contents */
-  color: white;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 14px;
+  background-repeat: no-repeat;
 }
 
-.course-title a  {
-  font-family: Helvetica;
-  font-size: 24px;
-  padding-top: 8px;
-  padding-left: 8px;
-  text-decoration: none;
-  color: white;
+.positive-button {
+  bottom: 30px;
 }
 
-#enrollments-count {
-  font-size: 16px;
-  padding-left: 8px;
-  margin-top: auto;
-}
+.course-dashboard-info{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  .fas {
+    min-width: 120px;
+    width: 100%;
+    font-size: 16px;
+    padding: 8px 16px;
+  }
 
-.course-card {
-  &:hover {
-    text-decoration: none
+  .course-info-text {
+    font-family: Helvetica;
+    font-weight: 500;
   }
 }
 
-.fa-user-friends {
-  padding-left: 12px;
-  font-size: 20px;
+.course-preview a {
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 30px;
+  text-decoration: none;
 }
+
+.course-info {
+  padding: 30px;
+  position: relative;
+  width: 100%;
+}
+
+.primary-button {
+  bottom: 30px;
+  right: 30px;
+}
+
+
+
+// .cards {
+//   display: grid;
+//   grid-template-columns: 45% 45%;
+//   grid-gap: 16px;
+//   padding: 16px;
+//   padding-top: 32px;
+//   justify-content: center;
+// }
+
+// .card-category {
+//   /* sizing of container */
+//   height: 69vh;
+//   /* positioning in container */
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   /* styling of container */
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+//   /* sizing of background image */
+//   background-size: cover;
+//   /* positioning of background image */
+//   background-position: center;
+
+//   /* styling of text contents */
+//   color: white;
+//   font-weight: bold;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   border-radius: 14px;
+// }
+
+// .course-title a  {
+//   font-family: Helvetica;
+//   font-size: 24px;
+//   padding-top: 8px;
+//   padding-left: 8px;
+//   text-decoration: none;
+//   color: white;
+// }
+
+// #enrollments-count {
+//   font-size: 16px;
+//   padding-left: 8px;
+//   margin-top: auto;
+// }
+
+// .course-card {
+//   &:hover {
+//     text-decoration: none
+//   }
+// }
+
+// .fa-user-friends {
+//   padding-left: 12px;
+//   font-size: 20px;
+// }
