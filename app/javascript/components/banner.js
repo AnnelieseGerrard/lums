@@ -61,9 +61,9 @@ class TextScramble {
 // ——————————————————————————————————————————————————
 
 const phrases = [
-  'GET',
+  'BE',
   'THE SIGNAL',
-  'FROM THE NOISE',
+  'IN THE NOISE',
   'LUMS'
 ]
 
