@@ -40,7 +40,7 @@ RailsAdmin.config do |config|
     # history_show
   end
   config.main_app_name = ["Lums", "BackOffice"]
-  config.included_models = ["User", "Course", "Lecture", "Exercise"]
+  config.included_models = ["User", "Course", "Lecture", "Exercise", "Submission"]
 
   config.model 'User' do
     object_label_method do
@@ -104,6 +104,27 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'Submission' do
+    list do
+      field :user
+      field :exercise
+      field :created_at
+      field :feedback
+    end
+    
+    show do
+      field :user
+      field :exercise
+      field :created_at
+      field :file
+      field :feedback
+    end
+
+    edit do
+      field :feedback
+    end
+  end
+
   def user_custom_label_method
     self.email
   end
@@ -112,4 +133,3 @@ RailsAdmin.config do |config|
     self.title.split(":").first
   end
 end
-

@@ -43,6 +43,7 @@ class Ability
         can :access, :rails_admin
         can :read, :dashboard
         cannot :manage, Review, { course: { user_id: user.id } }
+        can [:read, :update], Submission, { exercise: { lecture: { course: { user_id: user.id } } } }
       end
     end
   end
