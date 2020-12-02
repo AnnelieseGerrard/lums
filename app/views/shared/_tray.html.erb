@@ -6,7 +6,7 @@
           class: "form-control",
           placeholder: "Search"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "btn btn-primary primary-button" %>
       </div>
     <% end %>
     <% if @course.user.id == current_user.id %>
@@ -16,18 +16,20 @@
     <% end %>
         <% @lectures.order(position: :asc).each do |curriculum_item| %> <!-- For each lecture -->
             <% if @lecture.id == curriculum_item.id %> <!-- If curriculum_item is selected -->
-              <div class="lecture-card rounded active shadow p-3 m-3" data-id="<%= curriculum_item.id %>" id="lecture-card-<%= curriculum_item.id %>" >
+              <div class="lecture-card rounded active  p-3 mt-3 mr-3 mb-3" data-id="<%= curriculum_item.id %>" id="lecture-card-<%= curriculum_item.id %>" >
             <% else %>
-              <div class="lecture-card rounded shadow p-3 m-3" data-id="<%= curriculum_item.id %>" id="lecture-card-<%= curriculum_item.id %>" >
+              <div class="lecture-card rounded p-3 mt-3 mr-3 mb-3" data-id="<%= curriculum_item.id %>" id="lecture-card-<%= curriculum_item.id %>" >
             <% end %> <!-- If curriculum_item is selected - End -->
               <%= link_to course_lecture_path(@course, curriculum_item) do %> <!-- Link for card -->
                 <% if current_user.is_creator %> <!-- If user is creator -->
-                  <span class="drag-icons"><i class="fas fa-ellipsis-v"></i><i class="fas fa-ellipsis-v"></i></span> <%= curriculum_item.title %>
-                  <%= link_to edit_course_lecture_path(@course, curriculum_item), class: "icon" do  %> <!-- Link to edit -->
+                  <span class="drag-icons"></span> <%= curriculum_item.title %>
+                  <%= link_to edit_course_lecture_path(@course, curriculum_item), class: "icon" do  %>
+                  <div class="the-pen">
                     <i class="fas fa-pen"></i>
+                  </div>
                   <% end %> <!-- Link to edit - End -->
                   <div class="icon delete-lecture-icon-fake", data-lecture-id="<%= curriculum_item.id %>">
-                    <i class="fas fa-trash"></i>
+                    <i class="fas fa-trash the-trash"></i>
                   </div>
                   <%= link_to course_lecture_path(@course, curriculum_item), method: :delete, id:"delete-lecture-#{curriculum_item.id}", class: "delete-lecture-icon-real", remote: true do %>
                   <% end %>

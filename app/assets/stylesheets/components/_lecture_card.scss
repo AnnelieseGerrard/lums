@@ -1,9 +1,9 @@
 .lecture-card {
-  background-color: #f3f3f3;
   text-decoration: none;
   display:flex;
   justify-content: flex-start;
   align-items: center;
+  font-family: "Montserrat", "sans-serif";
 
   .drag-icons {
     margin-right: 4px;
@@ -15,5 +15,9 @@
 
   a.icon:last-child {
     margin-left: 10px;
+  }
+
+  .lecture-video {
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.1), 0 3px 5px 0 rgba(0,0,0,.2);
   }
 }
