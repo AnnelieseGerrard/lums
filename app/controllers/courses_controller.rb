@@ -12,6 +12,8 @@ class CoursesController < ApplicationController
     if cannot? :read, @course
       flash[:alert] = "You are not enrolled in that course."
       redirect_to courses_path
+    else
+      redirect_to course_lecture_path(@course, @course.lectures.first)
     end
   end
 end
