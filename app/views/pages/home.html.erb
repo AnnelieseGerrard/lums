@@ -70,15 +70,15 @@
 
 
   <h1 class="text-center pb-4 pt-5">Reviews</h1>
-          <div class="d-flex different-reviews">
+          <div class="d-flex justify-content-center different-reviews">
             <% @courses.each do |course|  %>
               <% course.reviews.order(rating: :desc).first(4).each do |review| %>
-                <div class="card-review" style="width: 18rem;">
+                <div class="card-review mx-4" style="width: 18rem;">
                   <div class="card-body">
                     <div class="d-flex flex-column align-items-center">
                      <%= image_tag("https://eu.ui-avatars.com/api/?name=#{review.user.firstname}+#{review.user.lastname}", id: "review-avatar") %>
                     <h5 class="card-title mt-2"><%= review.user.firstname + " " + review.user.lastname %></h5>
-                    <p class="text-center"><%= review.course.title %></p>
+                    <p class="text-center"><%= review.course.title.split(":").first %></p>
                     </div>
                     <div class="d-flex align-items-center flex-column">
                     <div class="d-flex">
@@ -87,7 +87,7 @@
                       <% end %>
                     </div>
                     <div>
-                      <p class="card-text"> "<%= review.content %>"</p>
+                      <p class="card-text text-center"> "<%= review.content %>"</p>
                     </div>
                   </div>
                   </div>
