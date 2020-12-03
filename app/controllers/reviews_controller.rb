@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review.course = @course
     @review.user = current_user
     if @review.save
-      redirect_to root_path
+      redirect_to course_lecture_path(@course, @course.lectures.first)
     else
       flash[:alert] = "Something went wrong."
       render :new
