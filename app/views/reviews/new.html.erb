@@ -1,11 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-4">
-   <%= simple_form_for [@course, @review] do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-        <%= f.submit "Send your review" %>
-      <% end %>
-    </div>
+<div class="review-form-container">
+  <div class="review-copy">
+    <h6>We value your feedback</h6>
+    <h1>Cody would love to hear about <strong>your</strong> learning experience!</h1>
+    <p>Creating engaging learning experiences for our students is our number one priority.
+    Therefore, getting feedback from you—our wonderful lifetime cohort is essential.
+    Whether it's the content, the structure, or perhaps you've spotted an annoying bug, get in touch!</p>
+    <p>We look forward to hearing from <strong>you</strong>!</p>
+  </div>
+
+  <div class="review-card">
+
+    <%= simple_form_for [@course, @review] do |f| %>
+    <i class="far fa-paper-plane"></i>
+      <div class="review-rating">
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {value: f.object.rating || '1'} %>
+      </div>
+      <div class="review-content">
+
+        <%= f.input :content,
+                    as: :text,
+                    label: false,
+                    inline_label: 'Content',
+                    input_html: {placeholder: "How did we do?", maxlength: 150}  %>
+      </div>
+      <div class="review-button">
+        <%= f.button :submit, "Send your review", class: "lums-button positive-button" %>
+      </div>
+    <% end %>
   </div>
 </div>
