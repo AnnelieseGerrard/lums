@@ -197,6 +197,7 @@ puts "Creating Reviews"
 
 Review.create(user: User.all.sample, course: Course.all.sample, rating: 4, content: "Really good course, I enjoyed it a lot!")
 Review.create(user: User.all.sample, course: Course.all.sample, rating: 5, content: "It was amazing! I learned so much so quickly!")
+Review.create(user: User.all.sample, course: Course.all.sample, rating: 4, content: "Super Interesting!")
 
 puts
 puts "Database seeded successfully."
