@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.course = @course
     @review.user = current_user
+    @review.rating = 0 if @review.rating.nil?
     if @review.save
       redirect_to courses_path
     else
