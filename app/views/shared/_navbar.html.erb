@@ -4,13 +4,13 @@
   <% end  %>
   <ul class="primary-nav">
     <li class="nav-item active" id="courses">
-      <%= link_to " Our Courses", "javascript:void(0)", class: "nav-link", id: "courses" %>
+      <%= link_to "Courses", "javascript:void(0)", class: "nav-link scroll-target" %>
     </li>
     <li class="nav-item active">
-      <%= link_to "About", "#", class: "nav-link" %>
+      <%= link_to "About", "javascript:void(0)", class: "nav-link scroll-target" %>
     </li>
     <li class="nav-item active">
-      <%= link_to "FAQs", "#", class: "nav-link" %>
+      <%= link_to "FAQs", "javascript:void(0)", class: "nav-link scroll-target" %>
     </li>
   </ul>
   <% if user_signed_in? %>

@@ -20,8 +20,19 @@
   }
   a, span{
     text-decoration: none;
-    color: #333;
+
   }
+}
+
+.lecture-card {
+  a {
+  color: #333;
+  }
+}
+
+.lecture-card:hover{
+  background-color: rgba(227,220,251, 0.4);
+  border-radius: 0 24px 24px 0 !important;
 }
 
 .lecture-card.active {
@@ -51,5 +62,10 @@
     border-radius: 5px;
     padding: 8px;
     transition-duration: 1s;
+}
+
+.add-lecture-container {
+  justify-content: center;
+  color: white;
 }
 
