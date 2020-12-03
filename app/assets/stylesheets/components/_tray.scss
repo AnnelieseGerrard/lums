@@ -38,9 +38,10 @@
 .fa-trash {
   padding: 9px;
   color: black;
-  background-color: rgba(247, 22, 34, 0.6) ;
+  background-color: rgba(247, 22, 34, 0.6);
   border-radius: 5px;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .fa-trash:hover {
