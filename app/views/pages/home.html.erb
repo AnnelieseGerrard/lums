@@ -3,26 +3,20 @@
 <h1 class="text-center pb-4">Our Online Courses</h1>
 
 <div class="card_container">
+<%  @courses.each do |course| %>
     <div class="card-product courses">
-      <img src="<%= image_path "socialmedia.png"  %>" alt="Social Media">
+      <img src="<%= cl_image_path course.image.key %>" alt="Social Media">
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <h2>Social Media Superstar</h2>
-        <p>Master selling in the digital age</p>
+        <h2 class="text-center mb-3"><%= course.title.split(":")[0] %></h2>
+        <p><%= course.title.split(":")[1] %></p>
        <a href="#" class="btn-blue padding-button">View Course</a>
       </div>
     </div>
+<% end %>
+</div>
 
-      <div class="card-product courses" id="courses-scroll">
-        <img src="assets/socialmediaharassment.jpg" alt="Social Media">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <h2 class="text-center">Socially Acceptable Harassment</h2>
-          <p>How to never take no for an answer</p>
-          <a href="#" class="btn-blue padding-button">View Course</a>
-        </div>
-      </div>
-    </div>
 
-  <h1 class="text-center pb-4 pt-5">How We're Different</h1>
+<h1 class="text-center pb-4 pt-5">How We're Different</h1>
 
   <div class="different" id="about-scroll">
     <div class="card-different">

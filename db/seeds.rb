@@ -20,9 +20,9 @@ User.destroy_all
 # Create Users
 puts
 puts "##### Creating new Users #####"
-puts "Creating Cody and Jess"
+puts "Creating Cody and Tom"
 cody = User.create(email: "cody@gmail.com", password: "password", firstname: "Cody", lastname: "Cell", is_creator: true)
-jess = User.create(email: "jess@gmail.com", password: "password", firstname: "Jess", lastname: "Smith")
+tom = User.create(email: "tom@gmail.com", password: "password", firstname: "Tom", lastname: "Jackson")
 
 puts "Creating 350 other Users"
 350.times do 
@@ -34,25 +34,25 @@ end
 puts
 puts "##### Creating Courses #####"
 puts "Downloading Course Images from Cloudinary"
-social_media_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1606255217/lums/seed_originals/social_media_marketing_course_image_qkdcha.jpg')
-direct_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1606255629/lums/seed_originals/direct_marketing_course_image_uihgbw.jpg')
+social_media_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1607001125/lums/seed_originals/social-media-course-image_wmi9k2.jpg')
+direct_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1607000202/lums/seed_originals/direct-marketing-course-image_yrrihy.jpg')
 
 puts "Creating Social Media Marketing Course"
 social_media_marketing_course = Course.create(title: "Social Media Superstar: Master Selling in the Digital Age", user: cody, 
                                               image: {io: File.open(social_media_marketing_course_image), filename: "social_media_marketing_course_image.jpeg", content_type: 'image/jpeg' })
 puts "Creating Direct Marketing Course"
-direct_marketing_course = Course.create(title: "Socially Acceptable Harassment: How to Never take No for an Answer", user: cody,
+direct_marketing_course = Course.create(title: "Direct Marketing: How to Get the Deal", user: cody,
                                         image: {io: File.open(direct_marketing_course_image), filename: "direct_marketing_course_image.jpeg", content_type: 'image/jpeg' })
 
 puts
 puts "##### Enrolling Users in Courses #####"
-# Enroll Jess in the social media marketing course
-puts "Enrolling Jess in the social media marketing course"
-Enrollment.create(user: jess, course: social_media_marketing_course)
+# Enroll Tom in the social media marketing course
+puts "Enrolling Tom in the social media marketing course"
+Enrollment.create(user: tom, course: social_media_marketing_course)
 
 # Enroll every other user into 1 or more courses.
 puts "Enrolling other users randomly in courses"
-User.where.not(id: jess.id).each do |user|
+User.where.not(id: tom.id).each do |user|
   number_of_courses = [1,2].sample # enroll the student in 1 or 2 courses
   if number_of_courses == 2
     user.courses_enrolled = [social_media_marketing_course, direct_marketing_course] # enroll the user in both
@@ -67,25 +67,24 @@ puts "##### Downloading Dummy Files from Cloudinary ##### "
 puts "Downloading Video File from Cloudinary"
 video_file = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1606330186/lums/seed_originals/intro_to_marketing_short_ioorcw.webm')
 puts "Downloading Powerpoint File from Cloudinary"
-ppt_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606246928/lums/seed_originals/Lums_vunfrx.pptx')
+ppt_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606246928/lums/seed_originals/lecture_slides.pptx')
 
 ############# Social Media Marketing Course ###################
 
-social_media_course_lecture_titles = ["Course Introduction", "Setup Your Accounts", "The Golden rule: Tailor, Tailor Tailor!", 
-                                      "Facebook Ads - What works best?", "Creating Facebook Ads", "Managing Facebook campaigns", 
-                                      "Youtube - What works best?", "Creating Youtube Ads", "Managing YouTube campaigns"]
+social_media_course_lecture_titles = ["Course Introduction", "Setup Your Accounts", 
+                                      "Creating Facebook Ads", "Managing Facebook campaigns", 
+                                      "Youtube - What works best?", "Creating Youtube Ads", "Managing YouTube campaigns", "Final Assignment"]
 
 social_media_course_lecture_descriptions = [
   "In this lecture, you will receive an overview of the course, and by the end you will have a clear understanding of what is coming",
   "In this lecture, you will setup all the accounts needed for the course, and by the end you will fully setup your Facebook, and Youtube marketing accounts",
-  "In this lecture, you will learn the golden rule of online marketing -- Tailor, Tailor, Tailor!",
-  "In this lecture, you will learn what works types of ads work best on the Facebook platform",
   "In this lecture, you will learn about the Facebook back panel, and by the end you be able to create your own Facebook ads",
   "In this lecture, you will learn about the Facebook campaign interface, and by the end you be able to track progress on your Facebook ads campaigns, and evaluate their performance",
   "In this lecture, you will learn what types of ads work best on the YouTube platform",
   "In this lecture, you will learn how to create ads in Youtube",
   "In this lecture, you will learn about the Youtube back panel, and by the end you be able to create your own Youtube ads",
-  "In this lecture, you will learn about the Youtube campaign interface, and by the end you be able to track progress on your Youtube ads campaigns, and evaluate their performance"
+  "In this lecture, you will learn about the Youtube campaign interface, and by the end you be able to track progress on your Youtube ads campaigns, and evaluate their performance",
+  "Its time to submit your final assignment!"
   ]
 
 social_media_course_exercise_titles = []
@@ -94,13 +93,12 @@ social_media_course_lecture_titles.each {|title| social_media_course_exercise_ti
 social_media_course_exercise_descriptions = [
   "Make a plan of your goals for the course",
   "Setup all your accounts following the steps in the lecture",
-  "Make a list of the different platforms you are on, and the ways that you have noticed the platform culture differing",
-  "Make a plan for how you can take advantage of the specific things that work on Facebook for your campaigns",
   "Create your first facebook ad using the Facebook back panel!",
   "Run different variations of your Facebook campaign, and run an analysis to find which version performed best",
   "Make a plan for how you can take advantage of the specific things that work on YouTube for your campaigns",
   "Create your first YouTube ad using the YouTube back panel!",
-  "Run different variations of your YouTube campaign, and run an analysis to find which version performed best"
+  "Run different variations of your YouTube campaign, and run an analysis to find which version performed best",
+  "Follow the instructions in the video and submit your assignment below!"
  ]
 
 puts
