@@ -1,7 +1,7 @@
 <div class="courses-container">
   <% @courses.each do |course| %>
     <div class="course">
-      <div class="course-preview" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path course.image.key %>');">
+      <div class="course-preview" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path course.image.key %>'); background-position: center; background-size:cover;">
         <h6>Info</h6>
         <div class="course-dashboard-info">
           <i class="fas fa-user-graduate"><span class="course-info-text"> <%= course.enrollments.count %> Students</span></i>
