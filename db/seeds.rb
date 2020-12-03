@@ -20,9 +20,9 @@ User.destroy_all
 # Create Users
 puts
 puts "##### Creating new Users #####"
-puts "Creating Cody and Jess"
+puts "Creating Cody and Tom"
 cody = User.create(email: "cody@gmail.com", password: "password", firstname: "Cody", lastname: "Cell", is_creator: true)
-jess = User.create(email: "jess@gmail.com", password: "password", firstname: "Jess", lastname: "Smith")
+tom = User.create(email: "tom@gmail.com", password: "password", firstname: "Tom", lastname: "Jackson")
 
 puts "Creating 350 other Users"
 350.times do 
@@ -41,18 +41,18 @@ puts "Creating Social Media Marketing Course"
 social_media_marketing_course = Course.create(title: "Social Media Superstar: Master Selling in the Digital Age", user: cody, 
                                               image: {io: File.open(social_media_marketing_course_image), filename: "social_media_marketing_course_image.jpeg", content_type: 'image/jpeg' })
 puts "Creating Direct Marketing Course"
-direct_marketing_course = Course.create(title: "Socially Acceptable Harassment: How to Never take No for an Answer", user: cody,
+direct_marketing_course = Course.create(title: "Direct Marketing: How to Get the Deal", user: cody,
                                         image: {io: File.open(direct_marketing_course_image), filename: "direct_marketing_course_image.jpeg", content_type: 'image/jpeg' })
 
 puts
 puts "##### Enrolling Users in Courses #####"
-# Enroll Jess in the social media marketing course
-puts "Enrolling Jess in the social media marketing course"
-Enrollment.create(user: jess, course: social_media_marketing_course)
+# Enroll Tom in the social media marketing course
+puts "Enrolling Tom in the social media marketing course"
+Enrollment.create(user: tom, course: social_media_marketing_course)
 
 # Enroll every other user into 1 or more courses.
 puts "Enrolling other users randomly in courses"
-User.where.not(id: jess.id).each do |user|
+User.where.not(id: tom.id).each do |user|
   number_of_courses = [1,2].sample # enroll the student in 1 or 2 courses
   if number_of_courses == 2
     user.courses_enrolled = [social_media_marketing_course, direct_marketing_course] # enroll the user in both
