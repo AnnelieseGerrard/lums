@@ -24,12 +24,10 @@
                 <% if current_user.is_creator %> <!-- If user is creator -->
                   <span class="drag-icons"></span> <%= curriculum_item.title %>
                   <%= link_to edit_course_lecture_path(@course, curriculum_item), class: "icon" do  %>
-                  <div class="the-pen">
-                    <i class="fas fa-pen"></i>
-                  </div>
+                    <i class="fas fa-pen .pen-icon"></i>
                   <% end %> <!-- Link to edit - End -->
                   <div class="icon delete-lecture-icon-fake", data-lecture-id="<%= curriculum_item.id %>">
-                    <i class="fas fa-trash the-trash"></i>
+                    <i class="fas fa-trash"></i>
                   </div>
                   <%= link_to course_lecture_path(@course, curriculum_item), method: :delete, id:"delete-lecture-#{curriculum_item.id}", class: "delete-lecture-icon-real", remote: true do %>
                   <% end %>
