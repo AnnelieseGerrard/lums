@@ -35,7 +35,7 @@ puts
 puts "##### Creating Courses #####"
 puts "Downloading Course Images from Cloudinary"
 social_media_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1606255217/lums/seed_originals/social_media_marketing_course_image_qkdcha.jpg')
-direct_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1606255629/lums/seed_originals/direct_marketing_course_image_uihgbw.jpg')
+direct_marketing_course_image = URI.open('https://res.cloudinary.com/dsogzo1mn/image/upload/v1607000202/lums/seed_originals/direct-marketing-course-image_yrrihy.jpg')
 
 puts "Creating Social Media Marketing Course"
 social_media_marketing_course = Course.create(title: "Social Media Superstar: Master Selling in the Digital Age", user: cody, 
@@ -73,7 +73,7 @@ ppt_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606246928
 
 social_media_course_lecture_titles = ["Course Introduction", "Setup Your Accounts", 
                                       "Creating Facebook Ads", "Managing Facebook campaigns", 
-                                      "Youtube - What works best?", "Creating Youtube Ads", "Managing YouTube campaigns"]
+                                      "Youtube - What works best?", "Creating Youtube Ads", "Managing YouTube campaigns", "Assignment"]
 
 social_media_course_lecture_descriptions = [
   "In this lecture, you will receive an overview of the course, and by the end you will have a clear understanding of what is coming",
@@ -84,6 +84,7 @@ social_media_course_lecture_descriptions = [
   "In this lecture, you will learn how to create ads in Youtube",
   "In this lecture, you will learn about the Youtube back panel, and by the end you be able to create your own Youtube ads",
   "In this lecture, you will learn about the Youtube campaign interface, and by the end you be able to track progress on your Youtube ads campaigns, and evaluate their performance"
+  "Its time to submit your final assignment!"
   ]
 
 social_media_course_exercise_titles = []
@@ -97,6 +98,7 @@ social_media_course_exercise_descriptions = [
   "Make a plan for how you can take advantage of the specific things that work on YouTube for your campaigns",
   "Create your first YouTube ad using the YouTube back panel!",
   "Run different variations of your YouTube campaign, and run an analysis to find which version performed best"
+  "Follow the instructions in the video and submit your assignment below!"
  ]
 
 puts
