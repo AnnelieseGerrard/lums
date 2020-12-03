@@ -176,11 +176,11 @@ direct_marketing_course_curriculum_items.each_with_index do |data, index|
   end
 
 # Make last lectures assessed
-[social_media_marketing_course, direct_marketing_course].each do |course|
-  last_exercise = course.lectures.last.exercise
-  last_exercise.is_assessed = true
-  last_exercise.save
-end
+# [social_media_marketing_course, direct_marketing_course].each do |course|
+#   last_exercise = course.lectures.last.exercise
+#   last_exercise.is_assessed = true
+#   last_exercise.save
+# end
 
 puts
 puts "Database seeded successfully."
