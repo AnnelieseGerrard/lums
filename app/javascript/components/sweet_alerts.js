@@ -57,10 +57,22 @@ const initAreYouSureAlertForDestroyLecture = () => {
 }
 
 const initAddReviewSuccessAlert = () => {
-  Swal.fire(
-    'Deleted!',
-    'Lecture has been deleted.',
-    'success'
-  )
+  const newReviewButtonFake = document.getElementById("new-review-button-fake");
+  const newReviewButtonReal = document.getElementById("new-review-button-real");
+  if (newReviewButtonFake) {
+    console.log(newReviewButtonFake);
+    newReviewButtonFake.addEventListener("click", (event) => {
+      event.preventDefault()
+      Swal.fire(
+        'Thank You!',
+        'Your Review has been Submitted.',
+        'success'
+      ).then(() => {
+        newReviewButtonReal.click();
+      })
+    })
+  }
 }
-export { initAreYouSureAlertForDestroyLecture, initNewLectureUploadAlert } 
+
+
+export { initAreYouSureAlertForDestroyLecture, initNewLectureUploadAlert, initAddReviewSuccessAlert } 

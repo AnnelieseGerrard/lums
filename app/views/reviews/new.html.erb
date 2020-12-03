@@ -24,7 +24,8 @@
                     input_html: {placeholder: "How did we do?", maxlength: 150}  %>
       </div>
       <div class="review-button">
-        <%= f.button :submit, "Send your review", class: "lums-button positive-button" %>
+        <%= link_to "Send your review", "", class: "lums-button positive-button", id:"new-review-button-fake" %>
+        <%= f.button :submit, "Send your review", class: "lums-button positive-button hidden", id: "new-review-button-real" %>
       </div>
     <% end %>
   </div>

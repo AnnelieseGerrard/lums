@@ -28,7 +28,7 @@ import { initLectureSorting } from '../components/tray';
 // import { trayItemChange } from '../components/tray';
 import { TextScramble } from '../components/banner';
 import { descriptionTrigger } from '../components/home';
-import { initNewLectureUploadAlert, initAreYouSureAlertForDestroyLecture } from '../components/sweet_alerts';
+import { initNewLectureUploadAlert, initAreYouSureAlertForDestroyLecture, initAddReviewSuccessAlert } from '../components/sweet_alerts';
 import { initStarRating } from '../plugins/init_star_rating';
 
 //turbolinks import
@@ -41,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initNewLectureUploadAlert();
   initAreYouSureAlertForDestroyLecture();
+  initAddReviewSuccessAlert();
   // trayItemChange();
   descriptionTrigger();
   initLectureSorting();
