@@ -193,4 +193,10 @@ direct_marketing_course_curriculum_items.each_with_index do |data, index|
 # end
 
 puts
+puts "Creating Reviews"
+
+Review.create(user: User.all.sample, course: Course.all.sample, rating: 4, content: "Really good course, I enjoyed it a lot!")
+Review.create(user: User.all.sample, course: Course.all.sample, rating: 5, content: "It was amazing! I learned so much so quickly!")
+
+puts
 puts "Database seeded successfully."
