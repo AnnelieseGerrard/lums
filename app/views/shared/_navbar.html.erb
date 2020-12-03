@@ -3,7 +3,7 @@
     <%= image_tag "logo200x200.png" %>
   <% end  %>
   <ul class="primary-nav">
-    <li class="nav-item active" id="courses">
+    <li class="nav-item active">
       <%= link_to "Courses", "javascript:void(0)", class: "nav-link scroll-target" %>
     </li>
     <li class="nav-item active">
@@ -14,21 +14,42 @@
     </li>
   </ul>
   <% if user_signed_in? %>
-    <ul class="secondary-nav">
-      <li class="nav-item dropdown">
-        <%= image_tag "https://eu.ui-avatars.com/api/?name=#{current_user.firstname}+#{current_user.lastname}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My Courses", courses_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item logout" %>
-          </div>
-      </li>
-    </ul>
-    <% else %>
+    <% if current_user.is_creator? %>
       <ul class="secondary-nav">
+        <li class="nav item active">
+          <%= link_to "Dashboard", "/admin", class: "nav-link admin-dashboard" %>
+        </li>
         <li class="nav-item active">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "My Courses", courses_path, class: "nav-link my-courses" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link logout" %>
+        </li>
+        <li class="nav-item active">
+          <%= image_tag "https://eu.ui-avatars.com/api/?name=#{current_user.firstname}+#{current_user.lastname}", class: "avatar" %>
+        </li>
+      <% else %>
+        <ul class="secondary-nav">
+          <li class="nav-item active">
+            <%= link_to "My Courses", courses_path, class: "nav-link my-courses" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link logout" %>
+          </li>
+          <li class="nav-item active">
+            <%= image_tag "https://eu.ui-avatars.com/api/?name=#{current_user.firstname}+#{current_user.lastname}", class: "avatar" %>
+          </li>
+        </ul>
+      <% end %>
+    <% else %>
+      <ul class="secondary-nav active">
+        <li class="nav-item active">
+          <%= link_to "Login", new_user_session_path, class: "nav-link login" %>
         </li>
       </ul>
     <% end %>
+
+
+
 </nav>
 
