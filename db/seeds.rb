@@ -71,15 +71,13 @@ ppt_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606246928
 
 ############# Social Media Marketing Course ###################
 
-social_media_course_lecture_titles = ["Course Introduction", "Setup Your Accounts", "The Golden rule: Tailor, Tailor Tailor!", 
-                                      "Facebook Ads - What works best?", "Creating Facebook Ads", "Managing Facebook campaigns", 
+social_media_course_lecture_titles = ["Course Introduction", "Setup Your Accounts", 
+                                      "Creating Facebook Ads", "Managing Facebook campaigns", 
                                       "Youtube - What works best?", "Creating Youtube Ads", "Managing YouTube campaigns"]
 
 social_media_course_lecture_descriptions = [
   "In this lecture, you will receive an overview of the course, and by the end you will have a clear understanding of what is coming",
   "In this lecture, you will setup all the accounts needed for the course, and by the end you will fully setup your Facebook, and Youtube marketing accounts",
-  "In this lecture, you will learn the golden rule of online marketing -- Tailor, Tailor, Tailor!",
-  "In this lecture, you will learn what works types of ads work best on the Facebook platform",
   "In this lecture, you will learn about the Facebook back panel, and by the end you be able to create your own Facebook ads",
   "In this lecture, you will learn about the Facebook campaign interface, and by the end you be able to track progress on your Facebook ads campaigns, and evaluate their performance",
   "In this lecture, you will learn what types of ads work best on the YouTube platform",
@@ -94,8 +92,6 @@ social_media_course_lecture_titles.each {|title| social_media_course_exercise_ti
 social_media_course_exercise_descriptions = [
   "Make a plan of your goals for the course",
   "Setup all your accounts following the steps in the lecture",
-  "Make a list of the different platforms you are on, and the ways that you have noticed the platform culture differing",
-  "Make a plan for how you can take advantage of the specific things that work on Facebook for your campaigns",
   "Create your first facebook ad using the Facebook back panel!",
   "Run different variations of your Facebook campaign, and run an analysis to find which version performed best",
   "Make a plan for how you can take advantage of the specific things that work on YouTube for your campaigns",
