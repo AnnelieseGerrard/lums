@@ -10,7 +10,7 @@
   background-color: black;
   .nav-link {
     border-bottom: 2px solid transparent;
-    color: rgba(228,231,233, 1);
+    color: rgba(228,231,233, 0.8);
     transition: 0.5s;
     }
   .nav-link:hover{
@@ -54,12 +54,12 @@
 
 
 .navbar-brand {
+  align-self: center;
   padding-top: 0px;
   padding-bottom: 0px;
-  position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   img {
-    width: 40px;
+    width: 48px;
 }
   }
 
