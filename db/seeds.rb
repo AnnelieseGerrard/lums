@@ -65,7 +65,8 @@ puts
 puts "##### Downloading Dummy Files from Cloudinary ##### "
 # Create some lectures for marketing course
 puts "Downloading Video File from Cloudinary"
-video_file = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1606330186/lums/seed_originals/intro_to_marketing_short_ioorcw.webm')
+video_file1 = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1607018866/lums/seed_originals/Video1-produced_jmvdbn.webm')
+video_file2 = URI.open('https://res.cloudinary.com/dsogzo1mn/video/upload/v1607019273/lums/seed_originals/Video2-produced_khi5eb.webm')
 puts "Downloading Powerpoint File from Cloudinary"
 ppt_file = URI.open('https://res.cloudinary.com/dsogzo1mn/raw/upload/v1606246928/lums/seed_originals/lecture_slides.pptx')
 
@@ -115,15 +116,24 @@ social_media_course_curriculum_items.each_with_index do |data, index|
   exercise_description = data[3]
   
   puts "Creating Lecture #{index + 1} for the Social Media Marketing Course"
+
+  if index != 7
   lecture = Lecture.create(title: title, course: social_media_marketing_course, description: lecture_description,
-    video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, 
+    video: {io: File.open(video_file1), filename: "marketing_101.mp4", content_type: 'video/webm' }, 
     resources: [], position: index+1)
-    
-    puts "Attaching Lecture #{index + 1} resources for the Social Media Marketing Course"
+  else
+    lecture = Lecture.create(title: title, course: social_media_marketing_course, description: lecture_description,
+      video: {io: File.open(video_file2), filename: "marketing_101.mp4", content_type: 'video/webm' }, 
+      resources: [], position: index+1)
+  end
+
+  puts "Attaching Lecture #{index + 1} resources for the Social Media Marketing Course"
   lecture.resources.attach(io: File.open(ppt_file), filename: "lecture_slides.pptx", content_type: ppt_file.content_type) 
   puts "Creating Exercise #{index + 1} for the Social Media Marketing Course"
   Exercise.create(name: exercise_title, rich_description: exercise_description, lecture: lecture)
 end
+
+
  
 ############# Direct Marketing Course ###################
 
@@ -166,7 +176,7 @@ direct_marketing_course_curriculum_items.each_with_index do |data, index|
   
   puts "Creating Lecture #{index + 1} for the Direct Marketing Course"
   lecture = Lecture.create(title: title, course: direct_marketing_course, description: lecture_description,
-    video: {io: File.open(video_file), filename: "marketing_101.mp4", content_type: 'video/mkv' }, 
+    video: {io: File.open(video_file1), filename: "marketing_101.mp4", content_type: 'video/mkv' }, 
     resources: [], position: index+1)
     
     puts "Attaching Lecture #{index + 1} resources for the Direct Marketing Course"
