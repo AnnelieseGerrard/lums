@@ -42,10 +42,10 @@
       </div> <!-- End sortable part of the tray -->
       <% if current_user.is_creator %> <!-- If user is creator -->
         <div class="add-lecture-container p-3">
-          <%= link_to  new_course_lecture_path(@course), class: "add-lecture-button" do %> <!-- Add lecture button -->
+          <%= link_to  new_course_lecture_path(@course), class: "lums-button positive-button" do %> <!-- Add lecture button -->
             <i class="fas fa-plus"></i>
+            Add Lecture
           <% end %> <!-- Add lecture button - End -->
-            <p>Add Lecture</p>
         </div>
       <% end %> <!-- If user is creator - End -->
   </div>

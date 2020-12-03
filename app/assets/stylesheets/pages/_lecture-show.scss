@@ -1,5 +1,6 @@
 .lecture-show {
   display: flex;
+  height: calc(100% + 105px);;
   width: 100%;
   background-color: #FAFAFA;
 }
@@ -7,9 +8,9 @@
 .lecture-show-content {
   // flex-grow: 2;
   width: 75%;
-  position: relative;	
+  position: relative;
   left: 25%;
-  height: 100vh;
+  height: calc(100vh - 64px);
 }
 
 .lecture-show-content-tab {
