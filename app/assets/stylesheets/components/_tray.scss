@@ -13,15 +13,38 @@
       border: none;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
-  }
-    .primary-button:hover {
-      background-color: #444444;
+    }
+
+    a, span {
+      text-decoration: none;
     }
   }
-  a, span{
-    text-decoration: none;
+}
 
-  }
+.fa-pen {
+  padding: 9px;
+  margin-right: 10px;
+  color: black;
+  background-color: rgba(98, 97, 238, 0.6);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.fa-pen:hover {
+  background-color: rgba(98, 97, 238, 1);
+
+}
+
+.fa-trash {
+  padding: 9px;
+  color: black;
+  background-color: rgba(247, 22, 34, 0.6) ;
+  border-radius: 5px;
+  transition: 0.4s;
+}
+
+.fa-trash:hover {
+  background-color: rgba(247, 22, 34, 1);
 }
 
 .lecture-card {
@@ -37,32 +60,24 @@
 
 .lecture-card.active {
   background-color: #E3DCFB;
-  color: white;
   align-items: center;
   border-radius: 0 24px 24px 0 !important;
   padding: 8px 0px 8px 16px;
 
 }
 
-.the-pen {
-  cursor: pointer;
-  margin-left: 10px;
-  color: white;
-  background-color: #444444;
-  border-radius: 5px;
-  padding: 8px;
-  transition-duration: 1s;
-}
+// .fa-pen {
+//   cursor: pointer;
+//   margin-left: 10px;
+//   color: white;
+//   background-color: #444444;
+//   border-radius: 5px;
+//   padding: 8px;
+//   transition-duration: 1s;
+// }
 
-.delete-lecture-icon-fake {
-    cursor: pointer;
-    margin-left: 10px;
-    color: white;
-    background-color: #6261EE;
-    border-radius: 5px;
-    padding: 8px;
-    transition-duration: 1s;
-}
+
+
 
 .add-lecture-container {
   justify-content: center;
