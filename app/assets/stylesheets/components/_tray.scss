@@ -28,7 +28,11 @@
   a {
   color: #333;
   }
+}
 
+.lecture-card:hover{
+  background-color: rgba(227,220,251, 0.4);
+  border-radius: 0 24px 24px 0 !important;
 }
 
 .lecture-card.active {
