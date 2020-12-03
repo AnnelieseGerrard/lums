@@ -56,4 +56,11 @@ const initAreYouSureAlertForDestroyLecture = () => {
   }
 }
 
+const initAddReviewSuccessAlert = () => {
+  Swal.fire(
+    'Deleted!',
+    'Lecture has been deleted.',
+    'success'
+  )
+}
 export { initAreYouSureAlertForDestroyLecture, initNewLectureUploadAlert } 
