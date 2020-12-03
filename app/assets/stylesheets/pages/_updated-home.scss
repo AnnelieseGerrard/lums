@@ -107,6 +107,7 @@ position: relative;
 .card-review {
   width: 800px;
 
+
 }
 
 .signup {
@@ -128,6 +129,7 @@ position: relative;
     border-radius: 8px;
     border: 1px solid #D6DAE4;
     overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
   }
 
   #review-avatar {
@@ -135,5 +137,7 @@ position: relative;
     border-radius: 50%;
   }
 
-
+.text-center {
+  text-align: center;
+}
 
