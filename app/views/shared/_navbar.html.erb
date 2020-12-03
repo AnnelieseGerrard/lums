@@ -2,17 +2,25 @@
   <%= link_to root_path, method: :get, class: "navbar-brand" do %>
     <%= image_tag "logo200x200.png" %>
   <% end  %>
-  <ul class="primary-nav">
-    <li class="nav-item active">
-      <%= link_to "Courses", "javascript:void(0)", class: "nav-link scroll-target" %>
-    </li>
-    <li class="nav-item active">
-      <%= link_to "About", "javascript:void(0)", class: "nav-link scroll-target" %>
-    </li>
-    <li class="nav-item active">
-      <%= link_to "FAQs", "javascript:void(0)", class: "nav-link scroll-target" %>
-    </li>
-  </ul>
+  <% if current_page?(root_path) %>
+    <ul class="primary-nav">
+      <li class="nav-item active">
+        <%= link_to "Courses", "javascript:void(0)", class: "nav-link scroll-target" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "About", "javascript:void(0)", class: "nav-link scroll-target" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "FAQs", "javascript:void(0)", class: "nav-link scroll-target" %>
+      </li>
+    </ul>
+    <% else %>
+    <ul class="primary-nav">
+      <li class="nav-item-active">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+    </ul>
+  <% end %>
   <% if user_signed_in? %>
     <% if current_user.is_creator? %>
       <ul class="secondary-nav">
