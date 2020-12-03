@@ -17,17 +17,21 @@ const navChange = () => {
 // ——————————————————————————————————————————————————
 
 const smoothScroll = () => {
-  const element = document.getElementById("courses");
-  const itemsTo = document.getElementById("courses-scroll");
-  if (element) {
-    element.addEventListener('click', event => {
-      itemsTo.scrollIntoView({
+  const scrollLink = document.querySelectorAll(".scroll-target");
+  if (scrollLink) {
+  scrollLink.forEach(item => {
+    item.addEventListener('click', event =>{
+      const scrollHTML =  item.innerText.toLowerCase();
+      const scrollText = `${scrollHTML}-scroll`;
+      const scrollTarget = document.getElementById(scrollText);
+      scrollTarget.scrollIntoView({
         block: 'start',
         behavior: 'smooth'
+        });
       });
-    });
+    })
   };
-};
+}
 
 
 
