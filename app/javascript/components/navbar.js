@@ -3,12 +3,12 @@
 // ——————————————————————————————————————————————————
 
 const navChange = () => {
-  if ( (window.location.pathname != "/#") && !(window.location.pathname != "/") || (window.location.pathname != "/") && !(window.location.pathname != "/#") ) {
+  if ( (window.location.pathname === "/") || (window.location.pathname === "/#") ) {
+  //if ( (window.location.pathname != "/#") && !(window.location.pathname != "/") || (window.location.pathname != "/") && !(window.location.pathname != "/#") ) {
     const elements = document.getElementsByTagName("nav");
     const elements_array = Array.from(elements);
     elements_array.forEach(element => element.style.backgroundColor = "transparent");
     elements_array.forEach(element => element.style.boxShadow = "none");
-
   };
 };
 
@@ -41,7 +41,7 @@ const checkScroll = () => {
     const myNav_array = Array.from(myNav);
     window.onscroll = function () {
       "use strict";
-      if (document.body.scrollTop >= 1 || document.documentElement.scrollTop >= 200) {
+      if (document.body.scrollTop >= 1 || document.documentElement.scrollTop >= 250) {
           myNav_array[0].classList.add("nav-scrolled");
       }
       else {
