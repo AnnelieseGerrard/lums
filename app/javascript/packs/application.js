@@ -21,7 +21,7 @@ require("trix")
 require("@rails/actiontext")
 
 // Internal imports:
-import { checkScroll } from '../components/navbar';
+// import { checkScroll } from '../components/navbar';
 import { navChange } from '../components/navbar';
 import { smoothScroll } from '../components/navbar';
 import { initLectureSorting } from '../components/tray';
@@ -35,7 +35,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  checkScroll();
+  // checkScroll();
   smoothScroll();
   navChange();
   initStarRating();
