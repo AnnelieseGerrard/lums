@@ -62,7 +62,7 @@ Enrollment.create(user: soel, course: social_media_marketing_course)
 
 # Enroll every other user into 1 or more courses.
 puts "Enrolling other users randomly in courses"
-User.each do |user|
+User.all.each do |user|
   unless [amy.id, bob.id, charlie.id, danielle.id, soel.id, tom.id].includes(user.id)
     number_of_courses = [1,2].sample # enroll the student in 1 or 2 courses
     if number_of_courses == 2
