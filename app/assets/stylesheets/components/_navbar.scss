@@ -27,7 +27,13 @@
   padding-right: 0px;
   padding-left: 0px;
   margin-bottom: 16px;
+  .nav-link ~ .nav-link {
+    border-bottom: 2px solid transparent;
+    color: #E3DCFB;
+    transition: 0.5s;
+    border-right: 1px solid rgba(228,231,233, 0.5);
   }
+}
 
 
 .secondary-nav {
