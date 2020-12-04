@@ -1,17 +1,27 @@
 <div class="courses-container">
   <% @courses.each do |course| %>
-    <div class="course">
-      <div class="course-preview" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path course.image.key %>'); background-position: center; background-size:cover;">
-        <h6>Info</h6>
-        <div class="course-dashboard-info">
-          <i class="fas fa-user-graduate"><span class="course-info-text"> <%= course.enrollments.count %> Students</span></i>
-          <i class="fas fa-video"><span class="course-info-text"> <%= course.lectures.count %> Lectures</span></i>
-          <i class="fas fa-book-open"><span class="course-info-text"> <% exercise_array = [] %><% course.lectures.each do |lecture| %><% exercise_array << lecture.exercise %><% end %><%= exercise_array.count %> Exercises</span></i>
-        </div>
-      </div>
-      <div class="course-info">
-        <h6>Course</h6>
+    <div class="courses-card">
+      <div class="courses-banner" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path course.image.key %>'); background-position: center; background-size:cover;"></div>
+      <div class="courses-title">
         <h2><%= course.title %></h2>
+      </div>
+      <div class="courses-info-students">
+        <i class="fas fa-user-graduate"></i>
+        <p><%= course.enrollments.count %></p>
+        <p>Students</p>
+      </div>
+      <div class="courses-info-lectures">
+        <i class="fas fa-video"></i>
+        <p><%= course.lectures.count %></p>
+        <p>Lectures</p>
+      </div>
+      <div class="courses-info-exercises">
+        <i class="fas fa-book-open"></i>
+        <p> <% exercise_array = [] %><% course.lectures.each do |lecture| %><% exercise_array << lecture.exercise %><% end %><%= exercise_array.count %></p>
+        <p>Exercises</p>
+      </div>
+
+      <div class="courses-buttons">
         <%= link_to course_lecture_path(course, course.lectures.first), class: "lums-button primary-button" do %>
           <i class="fas fa-chevron-circle-right"></i>
           <span class="button-text">Continue</span>
@@ -19,33 +29,10 @@
         <% unless current_user.is_creator? && current_user.courses_created.include?(course) %>
           <%= link_to new_course_review_path(course), class: "lums-button positive-button" do %>
             <i class="fas fa-comments"></i>
-            <span class="button-text">Leave a review</span>
+            <span class="button-text">Review us</span>
           <% end %>
         <% end %>
       </div>
     </div>
   <% end %>
 </div>
-
-
-
-<!-- <div class="cards">
-  <% @courses.each do |course| %>
-    <%= link_to course_lecture_path(course.id, course.lectures.first.id), class:"course-card" do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path course.image.key %>');">
-        <div>
-        </div>
-        <div>
-          <h3 class="course-title text-center"><%= course.title %></h3>
-        </div>
-        <div>
-          <p><i class="fas fa-user-friends"> <%= course.enrollments.count %></i></p>
-          <%= link_to new_course_review_path(course) do %>
-            <i class="far fa-comments p-0 mr-3"></i>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div> -->
-
