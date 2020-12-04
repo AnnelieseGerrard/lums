@@ -45,7 +45,6 @@
   </div>
 
   <div class="signup pt-5" id="faqs-scroll">
-
       <div class="card-product">
         <img src="<%= image_path "student.png"  %>" alt="Social Media">
         <div class="px-4">
@@ -67,8 +66,6 @@
     </div>
 
 
-
-
   <h1 class="text-center pb-4 pt-5">Reviews</h1>
           <div class="d-flex justify-content-center different-reviews">
             <% @courses.each do |course|  %>
@@ -87,7 +84,7 @@
                       <% end %>
                     </div>
                     <div>
-                      <p class="card-text text-center"> "<%= review.content %>"</p>
+                      <p class="card-text text-justify"> "<%= review.content %>"</p>
                     </div>
                   </div>
                   </div>
