@@ -1,0 +1,79 @@
+.signup-card {
+  background-color: white;
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 2fr 1fr;
+  grid-template-columns: 100%;
+  height: 480px;
+  width: 320px;
+  box-shadow: 0 0 1px;
+}
+
+.signup-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 1 / 2;
+}
+
+.signup-name {
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+  grid-row: 2 / 3;
+  .user_firstname {
+    .form-control {
+      width: 120px;
+      border-width: 0px 0px 1px 0px;
+      margin-right: 8px;
+    }
+  }
+  .user_lastname {
+    .form-control {
+      width: 120px;
+      border-width: 0px 0px 1px 0px;
+    }
+  }
+
+}
+
+.signup-email {
+  display: flex;
+  justify-content: center;
+  grid-row: 3 / 4;
+  .user_email {
+    .form-control {
+      border-width: 0px 0px 1px 0px;
+    }
+  }
+}
+
+.signup-password {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  width: 210px;
+  grid-row: 4 / 5;
+  .user_password {
+    .form-control {
+      margin-left: 54px;
+      border-width: 0px 0px 1px 0px;
+    }
+    .form-text {
+      margin-left: 54px;
+      font-size: 10px;
+    }
+  }
+  .user_password_confirmation {
+    .form-control {
+      margin-left: 54px;
+      border-width: 0px 0px 1px 0px;
+    }
+  }
+}
+
+.signup-button {
+  display: flex;
+  justify-content: center;
+  grid-row: 5 / 6;
+}
